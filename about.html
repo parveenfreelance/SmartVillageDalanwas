@@ -284,6 +284,78 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
   }
 }
 
+  /* ===== SIGHTSEEING SECTION ===== */
+.sightseeing-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  color: #1f2d3d;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.sightseeing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.sight-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sight-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.2);
+}
+
+.sight-image {
+  overflow: hidden;
+  height: 200px;
+}
+
+.sight-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.sight-card:hover img {
+  transform: scale(1.12);
+}
+
+.sight-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.sight-content h3 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.sight-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+
   </style>
 </head>
 <body>
@@ -344,9 +416,73 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
 </div>
 
 
-<section>
-  <img src="images/village2.jpg" alt="Village Image" class="about-image">
+<section class="sightseeing-section">
+  <h2 class="section-title">Places of Sightseeing</h2>
+  <p class="section-subtitle">
+    Discover the cultural, historical, and spiritual landmarks around Dalanwas
+  </p>
+
+  <div class="sightseeing-grid">
+
+    <!-- Madhogarh Fort -->
+    <div class="sight-card">
+      <div class="sight-image">
+        <img src="images/madhogarh-fort.jpg" alt="Madhogarh Fort">
+      </div>
+      <div class="sight-content">
+        <h3>🏰 Madhogarh Fort</h3>
+        <p>
+          A historic hill fort near Dalanwas showcasing ancient architecture and
+          panoramic views. It reflects the royal heritage of the region.
+        </p>
+      </div>
+    </div>
+
+    <!-- Pila Johad -->
+    <div class="sight-card">
+      <div class="sight-image">
+        <img src="images/pila-johad.jpg" alt="Pila Johad">
+      </div>
+      <div class="sight-content">
+        <h3>🌊 Pila Johad</h3>
+        <p>
+          A traditional water reservoir that represents the village’s
+          water-conservation heritage and rural ecosystem.
+        </p>
+      </div>
+    </div>
+
+    <!-- Baba Sawanth Nath Temple -->
+    <div class="sight-card">
+      <div class="sight-image">
+        <img src="images/baba-sawanth-nath.jpg" alt="Baba Sawanth Nath Temple">
+      </div>
+      <div class="sight-content">
+        <h3>🛕 Baba Sawanth Nath Temple</h3>
+        <p>
+          A revered spiritual place attracting devotees from nearby villages,
+          known for peace, faith, and annual gatherings.
+        </p>
+      </div>
+    </div>
+
+    <!-- Dadi Sati Temple -->
+    <div class="sight-card">
+      <div class="sight-image">
+        <img src="images/dadi-sati-temple.jpg" alt="Dadi Sati Temple">
+      </div>
+      <div class="sight-content">
+        <h3>🙏 Dadi Sati Temple</h3>
+        <p>
+          A sacred temple symbolizing devotion and tradition, playing an
+          important role in local religious life.
+        </p>
+      </div>
+    </div>
+
+  </div>
 </section>
+
 
 
 <footer class="modern-footer">
