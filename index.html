@@ -627,6 +627,52 @@ footer {
   }
 }
 
+/* SARPANCH TABLE */
+#sarpanchSection {
+  background: #ffffff;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+#sarpanchSection h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.sarpanch-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.sarpanch-table th,
+.sarpanch-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.sarpanch-table th {
+  background: #1f2d3d;
+  color: white;
+}
+
+.sarpanch-table tr:nth-child(even) {
+  background: #f4f6f9;
+}
+
+.sarpanch-table tr:hover {
+  background: #eaf2f8;
+}
+
+
 
 </style>
 </head>
@@ -763,6 +809,51 @@ footer {
   <div class="card"><span data-count="5">0</span><br><span id="sch">Schools Nearby</span></div>
 </div>
 </section>
+
+<!-- SARPANCH HISTORY -->
+<section id="sarpanchSection">
+  <h2>🗳️ List of Village Sarpanch</h2>
+
+  <div class="table-wrapper">
+    <table class="sarpanch-table">
+      <thead>
+        <tr>
+          <th>S. No.</th>
+          <th>Sarpanch Name</th>
+          <th>Term</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Sh. Ramphal</td>
+          <td>1995 – 2000</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sh. Mahender Singh</td>
+          <td>2000 – 2005</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Smt. Sunita Devi</td>
+          <td>2005 – 2010</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Sh. Rajbir Singh</td>
+          <td>2010 – 2016</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Mr. Ombir</strong></td>
+          <td><strong>2022 – Present</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 
 <!-- EDUCATION -->
 <section>
