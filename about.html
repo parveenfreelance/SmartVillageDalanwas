@@ -394,22 +394,23 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
 
 /* ===== SIGHTSEEING DESCRIPTION ===== */
 .sightseeing-description {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 0 20px;
+  max-width: 1200px;      /* slightly wider */
+  margin: 40px auto;     /* reduce vertical gap */
+  padding: 0 12px;       /* less side padding */
   display: flex;
   flex-direction: column;
-  gap: 40px; /* space between each place */
+  gap: 32px;             /* slightly tighter spacing */
 }
 
 .place-description {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  padding: 25px 30px;
+  padding: 20px 22px;    /* reduce left-right padding */
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
 }
+
 
 .place-description:hover {
   transform: translateY(-6px);
@@ -754,9 +755,6 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
 
 </div>
 
-
-  <hr>
-
   <!-- PLACE 2 -->
   <div class="sightseeing-description">
 
@@ -789,9 +787,6 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
   </div>
 
 </div>
-
-
-  <hr>
 
   <!-- PLACE 3 -->
   <div class="sightseeing-description">
