@@ -392,6 +392,70 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
   transform: scale(1.05);
 }
 
+/* ===== SIGHTSEEING DESCRIPTION ===== */
+.sightseeing-description {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* space between each place */
+}
+
+.place-description {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 25px 30px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+.place-description:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+.place-description h3 {
+  font-size: 22px;
+  color: #1f2d3d;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* small space between emoji and text */
+}
+
+.place-description p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* horizontal separator between places */
+.sightseeing-description hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .sightseeing-description {
+    gap: 30px;
+  }
+
+  .place-description {
+    padding: 20px;
+  }
+
+  .place-description h3 {
+    font-size: 20px;
+  }
+
+  .place-description p {
+    font-size: 14px;
+  }
+}
 
 
   </style>
@@ -655,6 +719,72 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
   </div>
 </section>
 
+<section class="sightseeing-description">
+
+  <!-- PLACE 1 -->
+  <div class="place-description lang en">
+    <h3>🌄 Madhogarh Hills</h3>
+    <p>
+      Nestled near Dalanwas, Madhogarh Hills offer breathtaking views and
+      a peaceful escape into nature. Visitors enjoy hiking through the
+      rocky terrain, exploring historical sites, and witnessing stunning
+      sunsets. The hills are also home to local flora and fauna, making
+      it a perfect spot for photography and nature lovers.
+    </p>
+  </div>
+
+  <div class="place-description lang hi" style="display:none;">
+    <h3>🌄 माधोगढ़ पहाड़ियाँ</h3>
+    <p>
+      डालनवास के पास स्थित माधोगढ़ पहाड़ियों से मनोरम दृश्य देखने को मिलते हैं और प्रकृति के करीब शांति का अनुभव होता है।  
+      पर्यटक यहां चट्टानी मार्गों पर ट्रैकिंग करते हैं, ऐतिहासिक स्थल देखते हैं और सुंदर सूर्यास्त का आनंद लेते हैं।  
+      यह क्षेत्र स्थानीय वनस्पति और जीव-जंतुओं का घर भी है, जो इसे फोटोग्राफी और प्रकृति प्रेमियों के लिए आदर्श बनाता है।
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- PLACE 2 -->
+  <div class="place-description lang en">
+    <h3>💧 Pila Johad</h3>
+    <p>
+      Pila Johad is a traditional water reservoir showcasing the village’s
+      heritage of water conservation. Surrounded by lush fields and
+      greenery, it provides a serene environment for meditation,
+      morning walks, and observing birds and aquatic life.
+    </p>
+  </div>
+
+  <div class="place-description lang hi" style="display:none;">
+    <h3>💧 पीला जोहड़</h3>
+    <p>
+      पीला जोहड़ गांव की जल-संरक्षण परंपरा का प्रतीक है।  
+      चारों ओर हरे-भरे खेत और प्राकृतिक वातावरण इसे ध्यान, सुबह की सैर और पक्षियों व जलजीवों के अवलोकन के लिए आदर्श स्थान बनाते हैं।
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- PLACE 3 -->
+  <div class="place-description lang en">
+    <h3>🛕 Baba Sawanth Nath Temple</h3>
+    <p>
+      A spiritual center attracting devotees from near and far, the
+      temple of Baba Sawanth Nath is a hub of faith and community
+      gatherings. Peaceful surroundings, daily rituals, and annual
+      festivals make it an enriching cultural and religious experience.
+    </p>
+  </div>
+
+  <div class="place-description lang hi" style="display:none;">
+    <h3>🛕 बाबा सावंतनाथ मंदिर</h3>
+    <p>
+      बाबा सावंतनाथ का मंदिर एक आध्यात्मिक केंद्र है जो दूर-दूर से भक्तों को आकर्षित करता है।  
+      शांत वातावरण, दैनिक अनुष्ठान और वार्षिक उत्सव इसे सांस्कृतिक और धार्मिक दृष्टि से समृद्ध अनुभव बनाते हैं।
+    </p>
+  </div>
+
+</section>
 
 
 <footer class="modern-footer">
