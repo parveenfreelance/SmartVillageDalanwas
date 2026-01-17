@@ -372,9 +372,26 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
   transform: scale(1.05);
 }
 .about-image-wrapper {
-  position: sticky;
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 20px; /* spacing between images */
+  position: sticky; /* keeps column in view while scrolling */
   top: 120px;
+  align-items: center;
 }
+
+.about-image-wrapper .about-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 16px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+  transition: transform 0.4s ease;
+}
+
+.about-image-wrapper .about-image:hover {
+  transform: scale(1.05);
+}
+
 
 
   </style>
@@ -561,22 +578,13 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
           के मार्ग पर निरंतर अग्रसर है।
         </p>
   </div>
-     <!-- Right: Image -->
-    <div class="about-image-wrapper">
-      <img
-        src="images/sawanthnathold.jpg"
-        alt="Baba Sawanth Nath"
-        class="about-image"
-      />
-    </div>
+    <!-- RIGHT SIDE: 3 images stacked nicely -->
+<div class="about-image-wrapper">
+  <img src="images/sawanthnathold.jpg" alt="Baba Sawanth Nath" class="about-image" />
+  <img src="images/babasawanthnathji.jpg" alt="Baba Sawanth Nath Temple" class="about-image" />
+  <img src="images/village10.jpg" alt="Dalanwas Village Scene" class="about-image" />
+</div>
 
-    <div class="about-image-wrapper">
-      <img
-        src="images/babasawanthnathji.jpg"
-        alt="Baba Sawanth Nath"
-        class="about-image"
-      />
-    </div>
     
 </div>
 </div>
