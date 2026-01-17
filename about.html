@@ -354,6 +354,23 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
   color: #555;
   line-height: 1.6;
 }
+.about-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 16px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+  transition: transform 0.4s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+}
 
 
   </style>
@@ -389,79 +406,161 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
 
 <div class="about-container">
   <div class="about-grid">
+    <div class="lang en">
 
-    <!-- Village History -->
-    <div class="about-card">
-      <div class="lang en">
-    <h2>Village History</h2>
-    <p>
-      Village <strong>Dalanwas</strong> has a rich and glorious history.
-      Its settlement journey began from <strong>Pitampura (Delhi)</strong>,
-      moved to <strong>Chandaliya</strong>, and finally reached its present location.
-    </p>
+        <h2><i class="fas fa-landmark"></i>Village History</h2>
+        <p>
+          <strong>Dalanwas</strong> has a rich and proud history. The village
+          settlement journey began from <strong>Pitampura (Delhi)</strong>,
+          then moved to <strong>Chandaliya</strong>, and finally reached
+          its present location.
+        </p>
+        <p>
+          In <strong>Samvat 1454</strong>, the village was established by
+          <strong>Daluram</strong>. His son <strong>Madararam</strong>,
+          belonging to the <strong>Parpara (Parvati) clan</strong>,
+          had ancestral roots in <strong>Dobda village, Rajasthan</strong>.
+        </p>
+        <p>
+          In <strong>Samvat 1452</strong>, a local woman became
+          <strong>Kuwari Sati</strong>, symbolizing supreme sacrifice and devotion.
+        </p>
 
-    <p>
-      In <strong>Samvat 1454</strong>, the village was established by
-      <strong>Daluram</strong>. His son <strong>Madararam</strong>,
-      belonging to the <strong>Parpara (Parvati) clan</strong>,
-      had ancestral roots in <strong>Dobda village, Rajasthan</strong>.
-    </p>
+        <h2><i class="fas fa-om"></i>Spiritual & Religious Heritage</h2>
+        <p>
+          A native saint, <strong>Savant (Savantia)</strong>, attained spiritual
+          greatness through deep meditation and penance. He is worshipped as
+          <strong>Shri Shri 1008 Siddh Shri Baba Sawanth Nath</strong>.
+        </p>
+        <p>
+          Temples dedicated to Baba Sawanth Nath are located in
+          <strong>Salas, Bhirod, and Pralnwas</strong>, attracting devotees
+          from across the region. Baba took <strong>Samadhi in Dalanwas</strong>,
+          making the village a sacred spiritual center.
+        </p>
 
-    <p>
-      In <strong>Samvat 1452</strong>, a local woman became <strong>Kuwari Sati</strong>,
-      symbolizing extraordinary sacrifice and devotion.
-    </p>
+        <h2><i class="fas fa-people-group"></i>Social Harmony</h2>
+        <p>
+          Dalanwas is a symbol of unity and brotherhood. Communities including
+          <strong>Jats, Brahmins, Sunars, Nais, Khatis, Kumhars, Chhippis,
+          Jogis, Dhanaks, and Chamars</strong> live together peacefully,
+          respecting each other’s traditions and values.
+        </p>
 
-    <p>
-      A native saint, <strong>Savant (Savantia)</strong>, attained spiritual greatness
-      through deep meditation and is worshipped as
-      <strong>Shri Shri 1008 Siddh Shri Baba Sawanth Nath</strong>.
-      His temples are located in <strong>Salas, Bhirod, and Pralnwas</strong>.
-      Baba took <strong>Samadhi in Dalanwas</strong>.
-    </p>
+        <h2><i class="fas fa-graduation-cap"></i>Education & Infrastructure</h2>
+        <p>
+          The village is equipped with essential facilities such as
+          <strong>GGS School, Sports Ground, Public Library,
+          Fawara Chowk, and Pidhiya Dham</strong>, contributing to education,
+          recreation, and social development.
+        </p>
 
-    <p>
-      Today, Dalanwas is known for social harmony, education, agriculture,
-      and remarkable contributions in defense services, administration,
-      business, and overseas employment.
-    </p>
+        <h2><i class="fas fa-medal"></i>Pride & Achievements</h2>
+        <p>
+          Late <strong>Colonel Peerdan</strong> remains a source of immense pride
+          for the village. Even today, many residents serve as
+          <strong>Colonels, Majors, IPS officers</strong>, and have been honored
+          with <strong>military medals</strong>.
+        </p>
+        <p>
+          Numerous villagers serve in the <strong>Indian Army, Haryana Police,
+          Delhi Police</strong>, education sector, and other government services.
+        </p>
+
+        <h2><i class="fas fa-tractor"></i>Agriculture & Livelihood</h2>
+        <p>
+          Farmers of Dalanwas earn their livelihood through
+          <strong>livestock rearing and vegetable farming</strong>.
+          Many villagers are also engaged in private jobs, independent businesses,
+          and overseas employment with reputed organizations.
+        </p>
+
+        <h2><i class="fas fa-seedling"></i> Our Vision</h2>
+        <p>
+          While preserving its traditions and values, Dalanwas continues to move
+          forward with a vision of <strong>education, self-reliance, unity,
+          and sustainable development</strong> for future generations.
+        </p>
+
+      </div>
+
+      <!-- ================= HINDI ================= -->
+      <div class="lang hi" style="display:none;">
+
+        <h2><i class="fas fa-landmark"></i>गांव का इतिहास</h2>
+        <p>
+          <strong>गांव डलनवास</strong> का इतिहास अत्यंत गौरवशाली है।
+          इसकी बसावट पहले <strong>पितमपुरा (दिल्ली)</strong>,
+          फिर <strong>चंडालिया</strong> और अंत में वर्तमान स्थान पर हुई।
+        </p>
+        <p>
+          <strong>सम्वत 1454</strong> में <strong>डालूराम</strong> जी द्वारा
+          गांव की स्थापना की गई। उनके पुत्र <strong>माड़ाराम</strong>,
+          जो <strong>परपारा उर्फ़ पार्वती गोत्र</strong> से थे,
+          का संबंध राजस्थान के <strong>गांव दोबड़ा</strong> से रहा।
+        </p>
+        <p>
+          <strong>सम्वत 1452</strong> में गांव की एक कन्या ने
+          <strong>कुंवारी सती</strong> होकर त्याग और बलिदान का अनुपम उदाहरण प्रस्तुत किया।
+        </p>
+
+        <h2><i class="fas fa-om"></i>धार्मिक एवं आध्यात्मिक विरासत</h2>
+        <p>
+          गांव के ही निवासी <strong>सावंत उर्फ़ सावंतिया</strong>
+          कठोर तप के कारण महान सिद्ध पुरुष बने और
+          <strong>श्री श्री 1008 सिद्ध श्री बाबा सावंतनाथ</strong>
+          के नाम से पूजे जाते हैं।
+        </p>
+        <p>
+          बाबा सावंतनाथ के मंदिर <strong>सालास, भीरोड़ और प्रलनवास</strong>
+          में स्थित हैं। बाबा ने <strong>डलनवास में समाधि</strong> ली,
+          जिससे गांव एक पवित्र धार्मिक केंद्र बना।
+        </p>
+
+        <h2><i class="fas fa-people-group"></i>सामाजिक समरसता</h2>
+        <p>
+          डलनवास सामाजिक भाईचारे का प्रतीक है।
+          यहां <strong>जाट, ब्राह्मण, सुनार, नाई, खाती, कुम्हार,
+          छिप्पी, जोगी, धानक, चमार</strong>
+          सभी जातियां आपसी प्रेम और सहयोग से रहती हैं।
+        </p>
+
+        <h2><i class="fas fa-graduation-cap"></i>शिक्षा एवं सुविधाएं</h2>
+        <p>
+          गांव में <strong>जीजीएस स्कूल, खेल मैदान, पुस्तकालय,
+          फव्वारा चौक और पीढ़िया धाम</strong>
+          जैसी सुविधाएं उपलब्ध हैं, जो सामाजिक विकास में सहायक हैं।
+        </p>
+
+        <h2><i class="fas fa-medal"></i>गौरव और उपलब्धियां</h2>
+        <p>
+          गांव के <strong>स्वर्गीय कर्नल पीरदान</strong>
+          डलनवास की शान रहे हैं।
+          आज भी गांव के लोग <strong>कर्नल, मेजर, आईपीएस</strong>
+          जैसे उच्च पदों पर कार्यरत हैं और
+          <strong>सेना पदकों</strong> से सम्मानित हैं।
+        </p>
+        <p>
+          अनेक ग्रामीण <strong>भारतीय सेना, हरियाणा पुलिस,
+          दिल्ली पुलिस और शिक्षा विभाग</strong> में सेवाएं दे रहे हैं।
+        </p>
+
+        <h2><i class="fas fa-tractor"></i>कृषि एवं आजीविका</h2>
+        <p>
+          गांव के किसान <strong>पशुपालन और सब्जी उत्पादन</strong>
+          के माध्यम से अपनी आजीविका चलाते हैं।
+          कई युवा <strong>विदेशों में अच्छे पैकेज</strong> पर कार्यरत हैं,
+          वहीं अनेक लोग निजी नौकरी और स्वयं का व्यवसाय कर रहे हैं।
+        </p>
+
+        <h2><i class="fas fa-seedling"></i> हमारा संकल्प</h2>
+        <p>
+          डलनवास अपनी परंपराओं को संजोते हुए
+          <strong>शिक्षा, आत्मनिर्भरता, एकता और सतत विकास</strong>
+          के मार्ग पर निरंतर अग्रसर है।
+        </p>
   </div>
-  <div class="lang hi" style="display:none;">
-    <h2>गांव का इतिहास</h2>
-    <p>
-      <strong>गांव डलनवास</strong> का इतिहास अत्यंत प्राचीन एवं गौरवशाली है।
-      इसकी बसावट पहले <strong>पितमपुरा (दिल्ली)</strong>,
-      फिर <strong>चंडालिया</strong> और अंत में वर्तमान स्थान पर हुई।
-    </p>
-
-    <p>
-      <strong>सम्वत 1454</strong> में <strong>डालूराम</strong> जी द्वारा
-      डलनवास गांव की स्थापना की गई।
-      उनके पुत्र <strong>माड़ाराम</strong>,
-      जो <strong>परपारा उर्फ़ पार्वती गोत्र</strong> से थे,
-      का संबंध राजस्थान के <strong>गांव दोबड़ा</strong> से रहा।
-    </p>
-
-    <p>
-      <strong>सम्वत 1452</strong> में गांव की एक कन्या ने
-      <strong>कुंवारी सती</strong> होकर त्याग और बलिदान का अनुपम उदाहरण प्रस्तुत किया।
-    </p>
-
-    <p>
-      गांव के ही निवासी <strong>सावंत उर्फ़ सावंतिया</strong>
-      कठोर तप के कारण महान सिद्ध पुरुष बने और
-      <strong>श्री श्री 1008 सिद्ध श्री बाबा सावंतनाथ</strong>
-      के नाम से पूजे जाते हैं।
-      बाबा के मंदिर <strong>सालास, भीरोड़ और प्रलनवास</strong> में स्थित हैं।
-      बाबा सावंतनाथ ने <strong>डलनवास में समाधि</strong> ली।
-    </p>
-
-    <p>
-      आज डलनवास सामाजिक समरसता, शिक्षा, कृषि,
-      सेना सेवा, प्रशासन, व्यवसाय और विदेशों में कार्यरत युवाओं
-      के लिए जाना जाता है।
-    </p>
-  </div>
+</div>
 </div>
      <!-- Right: Image -->
     <div class="about-image-wrapper">
@@ -471,9 +570,6 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
         class="about-image"
       />
     </div>
-  </div>
-</div>
-
 
 <section class="sightseeing-section">
   <h2 class="section-title">Places of Sightseeing</h2>
@@ -694,6 +790,25 @@ window.addEventListener("resize", () => {
   canvas.height = 250;
 });
 </script>
+
+  <script>
+function setLang(lang) {
+  const enBlocks = document.querySelectorAll(".lang.en");
+  const hiBlocks = document.querySelectorAll(".lang.hi");
+
+  if (lang === "en") {
+    enBlocks.forEach(el => el.style.display = "block");
+    hiBlocks.forEach(el => el.style.display = "none");
+  } else {
+    enBlocks.forEach(el => el.style.display = "block");
+    hiBlocks.forEach(el => el.style.display = "block");
+
+    enBlocks.forEach(el => el.style.display = "none");
+    hiBlocks.forEach(el => el.style.display = "block");
+  }
+}
+</script>
+
 
   </body>
 </html>
