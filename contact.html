@@ -339,12 +339,22 @@ footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
     <!-- RIGHT -->
     <div class="info-card">
       <h3 id="formTitle">Send Us a Message</h3>
-      <form onsubmit="submitForm(event)">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea rows="5" id="message" placeholder="Your Message" required></textarea>
+       <form action="https://formsubmit.co/smartvillagedalanwas@gmail.com" method="POST">
+        
+        <input type="text" name="name" placeholder="Your Name" required>
+        
+        <input type="email" name="email" placeholder="Your Email" required>
+        
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <!-- Disable Captcha -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Prevent redirect (stay on same page) -->
+        <input type="hidden" name="_next" value="https://dalanwas.in/contact.html">
+
         <button type="submit">Send Message</button>
-      </form>
+    </form>
     </div>
 
   </div>
