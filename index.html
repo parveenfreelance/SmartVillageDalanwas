@@ -672,7 +672,94 @@ footer {
   background: #eaf2f8;
 }
 
+/* ============================= */
+/* HOLI WATER SPLASH + BALLOONS */
+/* ============================= */
 
+#holiSplash {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #ff4081, #ff9800, #4caf50, #2196f3);
+  overflow: hidden;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOutSplash 3s ease 7s forwards;
+}
+
+/* Center Text */
+.holi-message {
+  text-align: center;
+  color: white;
+  z-index: 2;
+  animation: zoomIn 1.5s ease;
+}
+
+.holi-message h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+.holi-message p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* Fade Out Animation */
+@keyframes fadeOutSplash {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ================= */
+/* WATER SPLASH */
+/* ================= */
+
+#waterCanvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* ================= */
+/* BALLOONS */
+/* ================= */
+
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 60px;
+  height: 80px;
+  border-radius: 50%;
+  animation: floatUp 10s infinite ease-in;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 60px;
+  background: #555;
+  left: 50%;
+  bottom: -60px;
+}
+
+.b1 { left: 10%; background: #ff1744; animation-duration: 9s; }
+.b2 { left: 30%; background: #00e676; animation-duration: 11s; }
+.b3 { left: 50%; background: #ff9100; animation-duration: 8s; }
+.b4 { left: 70%; background: #00b0ff; animation-duration: 12s; }
+.b5 { left: 85%; background: #d500f9; animation-duration: 10s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-50vh) rotate(10deg); }
+  100% { transform: translateY(-110vh) rotate(-10deg); }
+}
 
 </style>
 </head>
@@ -695,7 +782,21 @@ footer {
   </div>
 </header>
 
+<!-- HOLI WATER SPLASH + BALLOONS -->
+<div id="holiSplash">
+  <canvas id="waterCanvas"></canvas>
+  <div class="holi-message">
+    <h1>🌸 Happy Holi 🌸</h1>
+    <p>Smart Village Dalanwas Wishes You Joy & Colors!</p>
+  </div>
 
+  <!-- Balloons -->
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b4"></div>
+  <div class="balloon b5"></div>
+</div>
 <nav>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
@@ -1352,7 +1453,59 @@ track.querySelectorAll(".student-card").forEach(card => {
   });
 });
 </script>
+<script>
+const canvas = document.getElementById("waterCanvas");
+const ctx = canvas.getContext("2d");
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const colors = ["#ff1744","#ff9100","#00e676","#00b0ff","#d500f9"];
+
+let particles = [];
+
+function createSplash() {
+  for (let i = 0; i < 100; i++) {
+    particles.push({
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      radius: Math.random() * 8 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      speedX: (Math.random() - 0.5) * 10,
+      speedY: (Math.random() - 0.5) * 10
+    });
+  }
+}
+
+function animateSplash() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach((p, index) => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+    p.radius *= 0.96;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+
+    if (p.radius < 0.5) {
+      particles.splice(index, 1);
+    }
+  });
+
+  requestAnimationFrame(animateSplash);
+}
+
+createSplash();
+animateSplash();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
 <!-- CONFETTI CDN -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
