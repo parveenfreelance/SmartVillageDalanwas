@@ -16,7 +16,7 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/favicon-48.png" sizes="48x48">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="preload" href="fonts/yatra-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/tiro-devanagari-hindi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/mukta-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{var t=localStorage.getItem('dv-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;if(localStorage.getItem('dv-lang')==='hi')document.documentElement.lang='hi'}catch(e){}</script>
 <link rel="stylesheet" href="css/site.css">
@@ -34,7 +34,7 @@
 <div class="greeting" id="greeting" hidden></div>
 <header class="header"><div class="wrap">
   <a class="brand" href="index.html" aria-label="Dalanwas home">
-    <span class="milestone" aria-hidden="true"></span>
+    <img class="brand__logo" src="icons/logo.svg" alt="" width="40" height="40">
     <span><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span><span class="brand__sub"><span class="en">Smart Village · Mahendragarh, Haryana</span><span class="hi">स्मार्ट विलेज · महेंद्रगढ़, हरियाणा</span></span></span>
   </a>
   <nav class="nav" aria-label="Main"><a href="index.html"><span class="en">Home</span><span class="hi">होम</span></a><a href="about.html"><span class="en">About</span><span class="hi">परिचय</span></a><a href="events.html"><span class="en">Events</span><span class="hi">कार्यक्रम</span></a><a href="library.html"><span class="en">Library</span><span class="hi">पुस्तकालय</span></a><a href="gallery.html"><span class="en">Gallery</span><span class="hi">गैलरी</span></a><a href="contact.html"><span class="en">Contact</span><span class="hi">संपर्क</span></a></nav>
@@ -68,7 +68,12 @@
   </div>
 </div></section>
 
-<section class="section section--tint"><div class="wrap shelf">
+<section class="section section--tint" id="results"><div class="wrap">
+  <div class="section-head"><h2><span class="en">Exam results</span><span class="hi">परीक्षा परिणाम</span></h2><p class="en">Winners of the library's competition exams. Tap a photo or result sheet to view it full size.</p><p class="hi">पुस्तकालय की प्रतियोगी परीक्षाओं के विजेता। पूरी फोटो या परिणाम पत्र देखने के लिए उस पर टैप करें।</p></div>
+  <div id="resultsList"></div>
+</div></section>
+
+<section class="section"><div class="wrap shelf">
   <div><h2><span class="en">On the shelves</span><span class="hi">अलमारियों में</span></h2><ul class="spines"><li><span class="en">Engineering</span><span class="hi">इंजीनियरिंग</span></li><li><span class="en">Medical</span><span class="hi">मेडिकल</span></li><li><span class="en">Methodology</span><span class="hi">पद्धति</span></li><li><span class="en">Competition prep</span><span class="hi">प्रतियोगी परीक्षा</span></li><li><span class="en">General knowledge</span><span class="hi">सामान्य ज्ञान</span></li><li><span class="en">Fiction and non-fiction</span><span class="hi">कथा और कथेतर</span></li></ul></div>
   <div><h2><span class="en">Activities</span><span class="hi">गतिविधियां</span></h2><ul class="checks"><li><span class="en">Exam practice sessions</span><span class="hi">परीक्षा अभ्यास सत्र</span></li><li><span class="en">Blood donation camps</span><span class="hi">रक्तदान शिविर</span></li><li><span class="en">Speech competitions</span><span class="hi">भाषण प्रतियोगिता</span></li><li><span class="en">Yoga and wellness</span><span class="hi">योग एवं स्वास्थ्य</span></li><li><span class="en">Cleanliness drives</span><span class="hi">स्वच्छता अभियान</span></li><li><span class="en">Reading and study groups</span><span class="hi">पठन एवं अध्ययन समूह</span></li></ul></div>
 </div></section>
@@ -129,7 +134,7 @@ draw();new MutationObserver(draw).observe(document.documentElement,{attributes:t
 <footer class="footer"><div class="wrap">
   <div class="footer__grid">
     <div>
-      <a class="brand" href="index.html"><span class="milestone" aria-hidden="true"></span><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span></a>
+      <a class="brand" href="index.html"><img class="brand__logo" src="icons/logo.svg" alt="" width="48" height="48"><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span></a>
       <p class="en">A smart village of Mahendragarh district, Haryana — education, community and progress.</p><p class="hi">हरियाणा के महेंद्रगढ़ जिले का स्मार्ट गांव — शिक्षा, समुदाय और प्रगति।</p>
       <button class="btn btn--sarson btn--sm" data-install hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><span class="en">Install the app</span><span class="hi">ऐप इंस्टॉल करें</span></button>
     </div>

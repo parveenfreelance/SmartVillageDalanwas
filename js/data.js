@@ -17,6 +17,7 @@ window.DV = {
 
   /* Notice board. Upcoming events in the next 14 days are added automatically. */
   notices: [
+    { tag: "library", en: "Haryana Day exam 2026 results are out — see the winners and photos.", hi: "हरियाणा दिवस परीक्षा 2026 का परिणाम घोषित — विजेताओं और फोटो देखें।", url: "library.html#results" },
     { tag: "panchayat", en: "Gram Sabha meeting — watch this board for the date and agenda.", hi: "ग्राम सभा बैठक — तिथि और एजेंडा के लिए यह सूचना पट देखें।" },
     { tag: "library", en: "Library is open for students every day, 9 AM to 11 PM.", hi: "पुस्तकालय छात्रों के लिए प्रतिदिन सुबह 9 से रात 11 बजे तक खुला है।", url: "library.html" },
     { tag: "library", en: "New books have arrived at Baba Sawanth Nath Library.", hi: "बाबा सावंतनाथ पुस्तकालय में नई पुस्तकें आई हैं।", url: "library.html" },
@@ -35,9 +36,9 @@ window.DV = {
     { id: "swachh", date: "2025-10-02", time: "08:00", repeat: "yearly", cat: "government", img: "cleanindia.jpg",
       en: { t: "Swachh Bharat Abhiyan", d: "Cleanliness drive across village streets.", p: "Main chowk" },
       hi: { t: "स्वच्छ भारत अभियान", d: "गांव की गलियों में सफाई अभियान।", p: "मुख्य चौक" } },
-    { id: "jagran-2026", date: "2026-09-18", cat: "religious", img: "sawanthnathtemple.jpg",
-      en: { t: "Baba Sawanth Nath Jagran", d: "Night-long jagran and bhandara.", p: "Baba Sawanth Nath Mandir" },
-      hi: { t: "बाबा सावंतनाथ जागरण", d: "रात्रि जागरण और भंडारा।", p: "बाबा सावंतनाथ मंदिर" } },
+    { id: "jagran-2026", date: "2026-09-17", time: "21:00", cat: "religious", img: "jagran-2026.jpg",
+      en: { t: "19th Vishal Jagran and Bhandara of Baba Sawanth Nath Ji", d: "Jagran from 9 PM on 17 September until morning, and bhandara from 10 AM on 18 September. Bhajans by Nardev Beniwal, Manoj Choudhary, Mannu Tanwar and Sumit Kalanaur, recorded by Mor Music. Organised by the temple committee and all villagers.", p: "Baba Sawanth Nath Mandir, Dalanwas", link: "View poster" },
+      hi: { t: "श्री श्री 1008 सिद्ध श्री बाबा सावंत नाथ जी महाराज का 19वां विशाल जागरण व भंडारा", d: "जागरण: 17 सितंबर 2026, रात्रि 9 बजे से सुबह बाबा की इच्छा तक। भंडारा: 18 सितंबर 2026, सुबह 10 बजे से। भजन गायक: नरदेव बेनीवाल, मनोज चौधरी, मन्नू तँवर, सुमित कलानौर (रिकॉर्डिंग: मोर म्यूज़िक)। आयोजक: मंदिर कमेटी व समस्त ग्रामवासी।", p: "बाबा सावंतनाथ मंदिर, डालनवास", link: "पोस्टर देखें" } },
     { id: "baba-bhaiya-2026", date: "2026-03-01", cat: "religious", img: "bababhaiya.jpg",
       en: { t: "Baba Bhaiya programme", d: "Jagran and kirtan.", p: "Baba Bhaiya Mandir" },
       hi: { t: "बाबा भैया कार्यक्रम", d: "जागरण और कीर्तन।", p: "बाबा भैया मंदिर" } },
@@ -50,10 +51,10 @@ window.DV = {
     { id: "holi-milan-2026", date: "2026-03-03", cat: "library", img: "library3.jpg",
       en: { t: "Holi Milan Samaroh", d: "Community members come together to celebrate the festival of colours.", p: "Baba Sawanth Nath Library" },
       hi: { t: "होली मिलन समारोह", d: "रंगों के त्योहार पर सभी ग्रामवासियों का मिलन।", p: "बाबा सावंतनाथ पुस्तकालय" } },
-    { id: "mock-1", date: "2026-03-23", cat: "library", img: "library1.jpg",
+    { id: "mock-1", date: "2026-03-23", cat: "library", img: "library-study-hall.jpg",
       en: { t: "Competition practice exam", d: "Practice exam for government job aspirants to check preparation and exam strategy.", p: "Baba Sawanth Nath Library" },
       hi: { t: "प्रतियोगी अभ्यास परीक्षा", d: "सरकारी नौकरी की तैयारी कर रहे छात्रों के लिए अभ्यास परीक्षा।", p: "बाबा सावंतनाथ पुस्तकालय" } },
-    { id: "mock-2", date: "2026-04-14", cat: "library", img: "library1.jpg",
+    { id: "mock-2", date: "2026-04-14", cat: "library", img: "library-study-hall.jpg",
       en: { t: "Competition practice exam", d: "Practice exam for government job aspirants to check preparation and exam strategy.", p: "Baba Sawanth Nath Library" },
       hi: { t: "प्रतियोगी अभ्यास परीक्षा", d: "सरकारी नौकरी की तैयारी कर रहे छात्रों के लिए अभ्यास परीक्षा।", p: "बाबा सावंतनाथ पुस्तकालय" } },
     { id: "yoga-2026", date: "2026-06-01", time: "06:00", cat: "library", img: "library3.jpg",
@@ -62,9 +63,12 @@ window.DV = {
     { id: "speech-jun-2026", date: "2026-06-05", cat: "library", img: "library4.jpg",
       en: { t: "Speech competition", d: "Builds confidence, creativity and public speaking.", p: "Baba Sawanth Nath Library" },
       hi: { t: "भाषण प्रतियोगिता", d: "आत्मविश्वास, रचनात्मकता और बोलने की कला को बढ़ावा।", p: "बाबा सावंतनाथ पुस्तकालय" } },
-    { id: "gk-2026", date: "2026-11-01", cat: "library", img: "library1.jpg",
-      en: { t: "Haryana GK competition exam", d: "Tests knowledge of Haryana's history, culture, geography, politics and current affairs.", p: "Baba Sawanth Nath Library" },
-      hi: { t: "हरियाणा सामान्य ज्ञान परीक्षा", d: "हरियाणा के इतिहास, संस्कृति, भूगोल, राजनीति और समसामयिक विषयों की परीक्षा।", p: "बाबा सावंतनाथ पुस्तकालय" } },
+    { id: "gk-2026", date: "2026-11-01", cat: "library", img: "haryana-day-2026-prizes.jpg", link: "library.html#results",
+      en: { t: "Haryana Day competition exam", d: "Held on Haryana Day for three groups — up to class 5, classes 6–10, and an open group. Winners received a memento, a diary and cash prizes.", p: "Baba Sawanth Nath Library", link: "See results" },
+      hi: { t: "हरियाणा दिवस प्रतियोगी परीक्षा", d: "हरियाणा दिवस पर तीन वर्गों में परीक्षा — कक्षा 5 तक, कक्षा 6 से 10, और ओपन वर्ग। विजेताओं को स्मृति चिन्ह, डायरी और नकद इनाम दिए गए।", p: "बाबा सावंतनाथ पुस्तकालय", link: "परिणाम देखें" } },
+    { id: "khel-2026", date: "2026-09-12", time: "08:15", cat: "sports", img: "khel-pratiyogita-2026-official.jpg", more: ["khel-pratiyogita-2026.jpg"],
+      en: { t: "Baba Sawant Nath Vishal Khel Pratiyogita", d: "Two-day sports festival on 12–13 September. Volleyball smashing and national kabaddi (first prize ₹31,000) on day one, from 8:15 AM; athletics and finals on day two — races for under-14 and over-14, 3000 m, 4×100 m relay, long, high and triple jump, shot put, a race for elders over 60 and a women's matka race. Chief guests: Sh. Kanwar Singh Yadav, MLA Mahendragarh, and Ch. Dharambir Singh, MP Bhiwani–Mahendragarh (prize distribution 13 September, 12 noon).", p: "Dalanwas", link: "View posters" },
+      hi: { t: "बाबा सावंत नाथ विशाल खेल प्रतियोगिता", d: "12–13 सितंबर को दो दिवसीय खेल प्रतियोगिता। पहले दिन प्रातः 8:15 बजे से वॉलीबॉल स्मैशिंग और नेशनल कबड्डी (प्रथम इनाम ₹31,000); दूसरे दिन एथलेटिक्स और फाइनल — 14 वर्ष से कम व ऊपर की दौड़, 3000 मी., 4×100 मी. रिले, लंबी, ऊंची व ट्रिपल कूद, गोला फेंक, वरिष्ठ नागरिकों की दौड़ और महिला मटका दौड़। मुख्य अतिथि: श्री कँवर सिंह यादव, विधायक महेंद्रगढ़ और चौ. धर्मबीर सिंह, सांसद भिवानी–महेंद्रगढ़ (इनाम वितरण 13 सितंबर, दोपहर 12 बजे)।", p: "डालनवास", link: "पोस्टर देखें" } },
     { id: "speech-dec-2026", date: "2026-12-25", cat: "library", img: "library4.jpg",
       en: { t: "Speech competition", d: "Builds confidence, creativity and public speaking.", p: "Baba Sawanth Nath Library" },
       hi: { t: "भाषण प्रतियोगिता", d: "आत्मविश्वास, रचनात्मकता और बोलने की कला को बढ़ावा।", p: "बाबा सावंतनाथ पुस्तकालय" } }
@@ -72,6 +76,11 @@ window.DV = {
 
   /* Photo gallery. cat: village | heritage | library | events */
   gallery: [
+    { src: "haryana-day-2026-prizes.jpg", cat: "library", en: "Haryana Day exam 2026 — prize distribution at Colonel Peerdan Lamba Manch", hi: "हरियाणा दिवस परीक्षा 2026 — कर्नल पीरदान लांबा मंच पर पुरस्कार वितरण" },
+    { src: "library-study-hall.jpg", cat: "library", en: "Study hall of Baba Sawanth Nath Library", hi: "बाबा सावंतनाथ पुस्तकालय का अध्ययन कक्ष" },
+    { src: "jagran-2026.jpg", cat: "heritage", en: "19th Vishal Jagran and Bhandara, 17–18 September 2026", hi: "19वां विशाल जागरण व भंडारा, 17–18 सितंबर 2026" },
+    { src: "khel-pratiyogita-2026-official.jpg", cat: "events", en: "Vishal Khel Pratiyogita poster, 12–13 September 2026", hi: "विशाल खेल प्रतियोगिता पोस्टर, 12–13 सितंबर 2026" },
+    { src: "khel-pratiyogita-2026.jpg", cat: "events", en: "Baba Sawant Nath Vishal Khel Pratiyogita, 12–13 September 2026", hi: "बाबा सावंत नाथ विशाल खेल प्रतियोगिता, 12–13 सितंबर 2026" },
     { src: "village1.jpg", cat: "village", en: "Village view", hi: "गांव का दृश्य" },
     { src: "village2.jpg", cat: "village", en: "Village road", hi: "गांव की सड़क" },
     { src: "village3.jpg", cat: "heritage", en: "Temple area", hi: "मंदिर परिसर" },
@@ -106,6 +115,7 @@ window.DV = {
 
   /* YouTube videos (the part after youtube.com/watch?v= ) */
   videos: [
+    { id: "-5Z5k5O_ALk", cat: "village library", en: "Dalanwas village and library", hi: "डालनवास गांव और पुस्तकालय" },
     { id: "UuQWqhg6DdA", cat: "village", en: "Dalanwas village", hi: "गांव डालनवास" },
     { id: "jIokX36WDWQ", cat: "library", en: "Baba Sawanth Nath Library", hi: "बाबा सावंतनाथ पुस्तकालय" },
     { id: "FwQaMi8NYYs", cat: "library", en: "Library activities", hi: "पुस्तकालय की गतिविधियां" },
@@ -113,6 +123,39 @@ window.DV = {
     { id: "RtrVuH-iA5E", cat: "events", en: "Event highlights", hi: "कार्यक्रम की झलकियां" },
     { id: "ziYVdqIGS54", cat: "events", en: "Event highlights", hi: "कार्यक्रम की झलकियां" },
     { id: "a2fwuKVMA_c", cat: "events", en: "Event highlights", hi: "कार्यक्रम की झलकियां" }
+  ],
+
+  /* Exam results shown on the library page (newest first).
+     Each row: [name, father, grandfather, place (1-5), cash prize in ₹ or 0] */
+  results: [
+    { id: "haryana-day-2026", date: "2026-11-01", photo: "haryana-day-2026-prizes.jpg",
+      sheets: ["haryana-day-2026-results-1.jpg", "haryana-day-2026-results-2.jpg"],
+      en: { t: "Haryana Day competition exam 2026", d: "On Haryana Day, 1 November 2026, the library held a competition exam on its premises. Every winner received a memento and a diary; the top three in each group also received a cash prize." },
+      hi: { t: "हरियाणा दिवस प्रतियोगी परीक्षा 2026", d: "आज दिनांक 01-11-2026, हरियाणा दिवस के अवसर पर बाबा सांवत नाथ पुस्तकालय परिसर में प्रतियोगी परीक्षा का आयोजन किया गया। सभी विजेताओं को स्मृति चिन्ह और डायरी दी गई; प्रत्येक वर्ग के प्रथम तीन स्थानों को नकद इनाम भी मिला।" },
+      groups: [
+        { en: "Junior group (up to class 5)", hi: "जूनियर वर्ग (कक्षा 5 तक)", rows: [
+          ["हनीश", "श्री प्रवीन कुमार", "श्री वेद प्रकाश लांबा", 1, 1100],
+          ["दियारा", "श्री प्रवीन कुमार", "श्री वेद प्रकाश लांबा", 2, 500],
+          ["दिव्या", "श्री संजय सिंह", "श्री दीवान सिंह लांबा", 3, 200],
+          ["निखिल", "श्री अनिल कुमार", "श्री करण सिंह मलिक", 4, 0],
+          ["सानवी", "श्री नवनीत कुमार", "श्री सुरेश रोहिल्ला", 5, 0] ] },
+        { en: "Classes 6 to 10", hi: "कक्षा 6 से 10", rows: [
+          ["विनय", "श्री राकेश कुमार", "श्री महावीर सिंह लांबा", 1, 1100],
+          ["हर्ष", "श्री संजय सिंह", "श्री दीवान सिंह लांबा", 1, 1100],
+          ["प्रतीक", "श्री धर्मवीर सिंह", "श्री हेमराज जांगड़ा", 2, 500],
+          ["सोनम", "श्री विकास कुमार", "श्री दीवान सिंह लांबा", 2, 500],
+          ["प्रिंस", "श्री प्रदीप कुमार", "श्री राजपाल सिंह लांबा", 2, 500],
+          ["प्रीति", "श्री सतीश कुमार", "श्री ओमप्रकाश दहिया", 3, 200],
+          ["पावनी", "श्री रमेश कुमार", "श्री शेर सिंह दहिया", 4, 0],
+          ["मिल्का", "श्री अजय कुमार", "श्री सज्जन सिंह लांबा", 5, 0],
+          ["भविष्य", "श्री सत्यभान", "श्री ओमप्रकाश कंकरवाल", 5, 0] ] },
+        { en: "Senior group (open)", hi: "सीनियर वर्ग (ओपन)", rows: [
+          ["दीक्षु", "श्री सुरेश कुमार", "श्री बलदेव सिंह ढिल्लो", 1, 1100],
+          ["यशवीर", "श्री कृष्ण कुमार", "श्री अमर सिंह जाखड़", 2, 500],
+          ["नितेश", "श्री जोगेंद्र सिंह", "श्री महावीर सिंह लांबा", 3, 200],
+          ["अरमान", "श्री ओमबीर सिंह", "श्री सुल्तान सिंह भालोठिया", 4, 0],
+          ["धीरज", "श्री जगदीश सिंह", "श्री सुल्तान सिंह भालोठिया", 5, 0] ] }
+      ] }
   ],
 
   /* Pride of Dalanwas */
@@ -211,6 +254,7 @@ window.DV = {
     { url: "about.html#festivals", en: "Festivals and melas", hi: "त्योहार और मेले", k: "jagran bhandara dadi sati mela holi dulendi" },
     { url: "events.html", en: "Events and calendar", hi: "कार्यक्रम और कैलेंडर", k: "events calendar countdown programme" },
     { url: "library.html", en: "Baba Sawanth Nath Library", hi: "बाबा सावंतनाथ पुस्तकालय", k: "library books students exam study" },
+    { url: "library.html#results", en: "Exam results", hi: "परीक्षा परिणाम", k: "result haryana day exam winners prize 2026 pariksha parinam" },
     { url: "library.html#reports", en: "Library reports (PDF)", hi: "पुस्तकालय रिपोर्ट (पीडीएफ)", k: "report pdf 2023 2024 2025 chosala" },
     { url: "library.html#success", en: "Student success wall", hi: "छात्र सफलता दीवार", k: "selected police army air force gram sachiv" },
     { url: "library.html#donate", en: "Support the library", hi: "पुस्तकालय को सहयोग दें", k: "donate upi donation" },

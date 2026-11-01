@@ -1,11 +1,11 @@
 /* Dalanwas offline support.
    When you change any file, increase CACHE_VERSION so visitors get the new version. */
-const CACHE_VERSION = "dv-v1";
+const CACHE_VERSION = "dv-v3";
 const CORE = [
   "./", "index.html", "about.html", "events.html", "library.html", "gallery.html", "contact.html", "offline.html",
   "css/site.css", "js/data.js", "js/app.js", "manifest.webmanifest",
-  "icons/icon-192.png", "icons/icon-512.png", "icons/icon.svg", "images/hero.jpg",
-  "fonts/mukta-latin-400-normal.woff2", "fonts/mukta-latin-600-normal.woff2", "fonts/mukta-devanagari-400-normal.woff2", "fonts/yatra-one-latin-400-normal.woff2", "fonts/yatra-one-devanagari-400-normal.woff2"
+  "icons/icon-192.png", "icons/icon-512.png", "icons/icon.svg", "icons/logo.svg", "images/hero.jpg",
+  "fonts/mukta-latin-400-normal.woff2", "fonts/mukta-latin-600-normal.woff2", "fonts/mukta-devanagari-400-normal.woff2", "fonts/tiro-devanagari-hindi-latin-400-normal.woff2", "fonts/tiro-devanagari-hindi-devanagari-400-normal.woff2"
 ];
 
 self.addEventListener("install", (e) => {

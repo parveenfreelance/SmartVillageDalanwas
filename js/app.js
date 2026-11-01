@@ -102,18 +102,22 @@
     const tx = pick(o);
     const timeStr = o.time ? o.when.toLocaleTimeString(locale(), { hour: "numeric", minute: "2-digit" }) : "";
     const shareText = `${tx.t} — ${fmt(o.when, { day: "numeric", month: "long", year: "numeric" })}, ${tx.p}, Dalanwas`;
-    return `<article class="ev ${isPast ? "is-past" : ""} ${isToday ? "is-today" : ""}" id="${esc(o.key)}">
+    const set = "ev-" + o.key, cap = `data-cap-en="${esc(o.en.t)}" data-cap-hi="${esc(o.hi.t)}"`;
+    const extra = (o.more || []).map(m => `<span hidden data-lb="${esc(m)}" data-lb-set="${esc(set)}" ${cap}></span>`).join("");
+    const media = o.img ? `<button class="ev__img" data-lb="${esc(o.img)}" data-lb-set="${esc(set)}" ${cap} aria-label="${L("View photo", "फोटो देखें")}: ${esc(tx.t)}"><img loading="lazy" src="${thumb(o.img)}" alt=""></button>${extra}` : "";
+    const more = o.link ? `<a class="btn btn--sm btn--neel" href="${esc(o.link)}">${esc(tx.link || L("Details", "विवरण"))}</a>` : (o.img && tx.link ? `<button class="btn btn--sm btn--neel" data-lb-open="${esc(set)}">${esc(tx.link)}</button>` : "");
+    return `<article class="ev ${o.img ? "has-img" : ""} ${isPast ? "is-past" : ""} ${isToday ? "is-today" : ""}" id="${esc(o.key)}">
       <div class="ev__date"><b>${o.when.getDate()}</b><span>${esc(fmt(o.when, { month: "short" }))} ${o.when.getFullYear()}</span></div>
       <div>
         <div class="ev__meta"><span class="tag tag--${o.cat}">${esc(catLabel(o.cat))}</span>${isToday ? `<strong>${L("Today", "आज")}</strong>` : ""}</div>
         <h3>${esc(tx.t)}</h3>
         <p>${esc(tx.d)}</p>
         <div class="ev__meta"><span>📍 ${esc(tx.p)}</span>${timeStr ? `<span>🕒 ${esc(timeStr)}</span>` : ""}</div>
-        ${isPast ? "" : `<div class="ev__actions">
+        ${isPast ? (more ? `<div class="ev__actions">${more}</div>` : "") : `<div class="ev__actions">${more}
           <a class="btn btn--sm btn--ghost" download="${esc(o.key)}.ics" href="${icsFor(o)}">${L("Add to calendar", "कैलेंडर में जोड़ें")}</a>
           <a class="btn btn--sm btn--ghost" target="_blank" rel="noopener" href="${waShare(shareText, siteUrl("events.html#" + o.key))}">${L("Share on WhatsApp", "व्हाट्सऐप पर भेजें")}</a>
         </div>`}
-      </div>
+      </div>${media}
     </article>`;
   }
 
@@ -190,13 +194,13 @@
     const el = $("#notices"); if (!el) return;
     onLang(() => {
       const soon = upcoming().filter(o => o.when - today0() < 14 * 864e5).map(o => ({
-        soon: true, url: "events.html#" + o.key, tag: o.cat,
+        soon: true, today: sameDay(o.when, today0()), url: o.link || ("events.html#" + o.key), tag: o.cat,
         text: `${pick(o).t} — ${sameDay(o.when, today0()) ? L("today", "आज") : fmt(o.when, { day: "numeric", month: "long" })}, ${pick(o).p}`
       }));
       const items = soon.concat((D.notices || []).map(n => ({ text: pick(n), tag: n.tag, url: n.url, date: n.date })));
       el.innerHTML = items.slice(0, +(el.dataset.limit || 6)).map(n => `<li><span class="pin ${n.soon ? "is-soon" : ""}" aria-hidden="true"></span>
         <div>${n.url ? `<a href="${esc(n.url)}">${esc(n.text)}</a>` : esc(n.text)}</div>
-        <span class="when"><span class="tag tag--${esc(n.tag)}">${esc(catLabel(n.tag))}</span>${n.soon ? " · " + L("Coming up", "आगामी") : ""}</span></li>`).join("");
+        <span class="when"><span class="tag tag--${esc(n.tag)}">${esc(catLabel(n.tag))}</span>${n.soon ? " · " + (n.today ? L("Today", "आज") : L("Coming up", "आगामी")) : ""}</span></li>`).join("");
     });
   }
 
@@ -349,7 +353,7 @@
     $$("[data-videos]").forEach(el => {
       const c = el.dataset.videos;
       const draw = () => {
-        const vids = (D.videos || []).filter(v => c === "all" || v.cat === c);
+        const vids = (D.videos || []).filter(v => c === "all" || v.cat.split(" ").includes(c));
         el.innerHTML = vids.map(v => `<div><div class="yt"><button data-id="${esc(v.id)}" aria-label="${L("Play video", "वीडियो चलाएं")}: ${esc(pick(v))}">
           <img loading="lazy" src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt=""><span class="play"></span></button></div><div class="yt-cap">${esc(pick(v))}</div></div>`).join("");
       };
@@ -358,6 +362,48 @@
         b.parentElement.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.id}?autoplay=1&rel=0" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
       });
       onLang(draw);
+    });
+  }
+
+  function lbLinks() {
+    document.addEventListener("click", e => {
+      const opener = e.target.closest("[data-lb-open]");
+      const b = opener ? $(`[data-lb-set="${opener.dataset.lbOpen}"]`) : e.target.closest("[data-lb]"); if (!b) return;
+      e.preventDefault();
+      const set = $$(`[data-lb-set="${b.dataset.lbSet}"]`);
+      const items = set.map(x => ({ src: x.dataset.lb, en: x.dataset.capEn || "", hi: x.dataset.capHi || x.dataset.capEn || "" }));
+      lbOpen(items, Math.max(0, set.indexOf(b)), b);
+    });
+  }
+
+  /* ---------- exam results ---------- */
+  function results() {
+    const el = $("#resultsList"); if (!el) return;
+    const place = (n) => L(["", "1st", "2nd", "3rd", "4th", "5th"][n], ["", "प्रथम", "द्वितीय", "तृतीय", "चतुर्थ", "पंचम"][n]);
+    const prize = (amt) => L("Memento + diary", "स्मृति चिन्ह + डायरी") + (amt ? ` + ₹${amt.toLocaleString("en-IN")}` : "");
+    onLang(() => {
+      el.innerHTML = (D.results || []).map(r => {
+        const tx = pick(r), set = "res-" + r.id;
+        const imgs = [r.photo, ...(r.sheets || [])];
+        return `<article class="result" id="${esc(r.id)}">
+          <div class="result__intro">
+            <figure class="result__photo"><button data-lb="${esc(r.photo)}" data-lb-set="${set}" data-cap-en="${esc(r.en.t)}" data-cap-hi="${esc(r.hi.t)}" aria-label="${L("View photo", "फोटो देखें")}"><img loading="lazy" src="${thumb(r.photo)}" alt="${esc(tx.t)}"></button>
+              <figcaption>${L("Prize distribution at Colonel Peerdan Lamba Manch", "कर्नल पीरदान लांबा मंच पर पुरस्कार वितरण")}</figcaption></figure>
+            <div>
+              <p class="result__date">${esc(fmt(parseD(r.date), { day: "numeric", month: "long", year: "numeric" }))}</p>
+              <h3 class="result__title">${esc(tx.t)}</h3>
+              <p>${esc(tx.d)}</p>
+              <div class="result__sheets">${(r.sheets || []).map((sh, i) => `<button data-lb="${esc(sh)}" data-lb-set="${set}" data-cap-en="Official result sheet ${i + 1}" data-cap-hi="आधिकारिक परिणाम पत्र ${i + 1}"><img loading="lazy" src="${thumb(sh)}" alt=""><span>${L("Result sheet", "परिणाम पत्र")} ${i + 1}</span></button>`).join("")}</div>
+            </div>
+          </div>
+          <div class="result__groups">${r.groups.map(g => `<div class="result__group">
+            <h4>${esc(pick(g))}</h4>
+            <div class="table-wrap"><table class="rtable">
+              <thead><tr><th>${L("Place", "स्थान")}</th><th>${L("Name", "नाम")}</th><th>${L("Father", "पिता")}</th><th>${L("Grandfather", "दादा")}</th><th>${L("Prize", "इनाम")}</th></tr></thead>
+              <tbody>${g.rows.map(([n, f, gf, pl, amt]) => `<tr class="p${pl}"><td><span class="place">${place(pl)}</span></td><td><b>${esc(n)}</b></td><td>${esc(f)}</td><td>${esc(gf)}</td><td>${esc(prize(amt))}</td></tr>`).join("")}</tbody>
+            </table></div></div>`).join("")}</div>
+        </article>`;
+      }).join("");
     });
   }
 
@@ -509,6 +555,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     misc(); setLang(lang);
     clock(); greeting(); weather(); notices(); nextEvent(); eventsPage();
-    galleries(); people(); counters(); toc(); search(); drawer(); pwa();
+    galleries(); lbLinks(); results(); people(); counters(); toc(); search(); drawer(); pwa();
   });
 })();
