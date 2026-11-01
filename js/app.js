@@ -216,7 +216,7 @@
       const isToday = sameDay(n.when, today0());
       el.innerHTML = `<div><p>${L("Next in Dalanwas", "डालनवास में अगला कार्यक्रम")}</p><h2>${esc(tx.t)}</h2>
         <p>${esc(fmt(n.when, { weekday: "long", day: "numeric", month: "long", year: "numeric" }))} · ${esc(tx.p)}</p>
-        <p style="margin-top:.75rem"><a href="events.html#${esc(n.key)}" style="color:var(--sarson)">${L("See all events", "सभी कार्यक्रम देखें")}</a></p></div>
+        <p class="ne__more"><a href="events.html#${esc(n.key)}">${L("See all events", "सभी कार्यक्रम देखें")}</a></p></div>
         ${isToday ? `<div class="today-badge">${L("Happening today", "आज हो रहा है")}</div>` : `<div class="countdown" role="timer" aria-live="off"></div>`}`;
       if (isToday) return;
       const cd = $(".countdown", el);
@@ -335,12 +335,17 @@
       let cat = fixed || "all";
       const all = (D.gallery || []);
       const draw = () => {
-        let items = all.filter(g => cat === "all" || g.cat === cat);
+        let items = all.filter(g => cat === "all" || cat.split(" ").includes(g.cat));
         if (limit) items = items.slice(0, limit);
         el._items = items;
         if (filterEl) {
           const cats = ["all", ...new Set(all.map(g => g.cat))];
           filterEl.innerHTML = cats.map(c => `<button class="chip" data-c="${c}" aria-pressed="${c === cat}">${esc(catLabel(c))} <span class="muted">${c === "all" ? all.length : all.filter(g => g.cat === c).length}</span></button>`).join("");
+        }
+        if (style === "marquee") {
+          const one = items.map((g, i) => `<button data-i="${i}" aria-label="${esc(pick(g))}"><img loading="lazy" src="${thumb(g.src)}" alt="${esc(pick(g))}"></button>`).join("");
+          el.innerHTML = one + one.replace(/<button /g, '<button tabindex="-1" aria-hidden="true" ');
+          return;
         }
         el.innerHTML = items.map((g, i) => style === "strip"
           ? `<button data-i="${i}" aria-label="${esc(pick(g))}"><img loading="lazy" src="${thumb(g.src)}" alt="${esc(pick(g))}"></button>`
@@ -404,6 +409,42 @@
             </table></div></div>`).join("")}</div>
         </article>`;
       }).join("");
+    });
+  }
+
+  /* ---------- header, hero slideshow, home tiles ---------- */
+  function headerScroll() {
+    const h = $("[data-header]"); if (!h) return;
+    const on = () => h.classList.toggle("scrolled", scrollY > 24);
+    on(); addEventListener("scroll", on, { passive: true });
+  }
+  function slideshow() {
+    const hero = $("[data-hero]"); if (!hero) return;
+    const slides = $$(".hero__slide", hero), dots = $(".hero__dots", hero);
+    if (slides.length < 2) return;
+    let i = 0, t;
+    const load = (s) => { if (s.dataset.src) { s.src = s.dataset.src; s.removeAttribute("data-src"); } };
+    const show = (n) => {
+      i = (n + slides.length) % slides.length; load(slides[i]); load(slides[(i + 1) % slides.length]);
+      slides.forEach((s, k) => s.classList.toggle("is-on", k === i));
+      $$("button", dots).forEach((d, k) => d.setAttribute("aria-selected", k === i));
+    };
+    dots.innerHTML = slides.map((_, k) => `<button role="tab" aria-label="Photo ${k + 1}" aria-selected="${k === 0}"></button>`).join("");
+    dots.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; show($$("button", dots).indexOf(b)); restart(); });
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const restart = () => { clearInterval(t); if (!reduce) t = setInterval(() => show(i + 1), 6500); };
+    setTimeout(() => load(slides[1]), 1500);
+    restart();
+  }
+  function tiles() {
+    const el = $("#tileResult"); if (!el) return;
+    onLang(() => {
+      const r = (D.results || [])[0]; if (!r) { el.remove(); return; }
+      const n = r.groups.reduce((a, g) => a + g.rows.length, 0);
+      el.style.backgroundImage = `url('${thumb(r.photo)}')`;
+      el.innerHTML = `<span class="tile__tag tile__tag--new">${L("New · results", "नया · परिणाम")}</span>
+        <h3>${esc(pick(r).t)}</h3>
+        <p>${L(`${n} winners in ${r.groups.length} groups. See the full list and photos.`, `${r.groups.length} वर्गों में ${n} विजेता। पूरी सूची और फोटो देखें।`)}</p>`;
     });
   }
 
@@ -555,6 +596,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     misc(); setLang(lang);
     clock(); greeting(); weather(); notices(); nextEvent(); eventsPage();
-    galleries(); lbLinks(); results(); people(); counters(); toc(); search(); drawer(); pwa();
+    headerScroll(); slideshow(); tiles(); galleries(); lbLinks(); results(); people(); counters(); toc(); search(); drawer(); pwa();
   });
 })();

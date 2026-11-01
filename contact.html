@@ -19,20 +19,15 @@
 <link rel="preload" href="fonts/tiro-devanagari-hindi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/mukta-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{var t=localStorage.getItem('dv-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;if(localStorage.getItem('dv-lang')==='hi')document.documentElement.lang='hi'}catch(e){}</script>
-<link rel="stylesheet" href="css/site.css">
-<script src="js/data.js" defer></script>
-<script src="js/app.js" defer></script>
+<link rel="stylesheet" href="css/site.css?v=4">
+<script src="js/data.js?v=4" defer></script>
+<script src="js/app.js?v=4" defer></script>
 
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7F2MM6Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="skip" href="#main"><span class="en">Skip to content</span><span class="hi">मुख्य सामग्री पर जाएं</span></a>
-<div class="topbar"><div class="wrap">
-  <div class="topbar__info"><span id="tbWeather" aria-live="polite"></span><span id="tbTime"></span><span id="tbDate"></span></div>
-  <a href="tel:+919467801292">+91 94678 01292</a>
-</div></div>
-<div class="greeting" id="greeting" hidden></div>
-<header class="header"><div class="wrap">
+<header class="header" data-header><div class="wrap">
   <a class="brand" href="index.html" aria-label="Dalanwas home">
     <img class="brand__logo" src="icons/logo.svg" alt="" width="40" height="40">
     <span><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span><span class="brand__sub"><span class="en">Smart Village · Mahendragarh, Haryana</span><span class="hi">स्मार्ट विलेज · महेंद्रगढ़, हरियाणा</span></span></span>
@@ -46,7 +41,9 @@
   </div>
 </div></header>
 <main id="main">
-<section class="page-head"><div class="wrap"><h1><span class="en">Contact Dalanwas</span><span class="hi">डालनवास से संपर्क</span></h1><p class="en">Questions, suggestions, or news to share for the notice board? Call, message on WhatsApp, or write to us.</p><p class="hi">कोई प्रश्न, सुझाव, या सूचना पट के लिए खबर? कॉल करें, व्हाट्सऐप करें, या हमें लिखें।</p></div></section>
+<section class="page-head" style="background-image:url('images/village2.jpg');--pos:center"><div class="wrap">
+  <img class="page-head__emblem" src="icons/logo.svg" alt="" width="56" height="56">
+  <h1><span class="en">Contact Dalanwas</span><span class="hi">डालनवास से संपर्क</span></h1><p class="en">Questions, suggestions, or news to share for the notice board? Call, message on WhatsApp, or write to us.</p><p class="hi">कोई प्रश्न, सुझाव, या सूचना पट के लिए खबर? कॉल करें, व्हाट्सऐप करें, या हमें लिखें।</p></div></section>
 <section class="section"><div class="wrap contact-grid">
   <div>
     <h2><span class="en">Reach us</span><span class="hi">हमसे जुड़ें</span></h2>

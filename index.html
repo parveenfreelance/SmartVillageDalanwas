@@ -19,20 +19,15 @@
 <link rel="preload" href="fonts/tiro-devanagari-hindi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/mukta-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{var t=localStorage.getItem('dv-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;if(localStorage.getItem('dv-lang')==='hi')document.documentElement.lang='hi'}catch(e){}</script>
-<link rel="stylesheet" href="css/site.css">
-<script src="js/data.js" defer></script>
-<script src="js/app.js" defer></script>
+<link rel="stylesheet" href="css/site.css?v=4">
+<script src="js/data.js?v=4" defer></script>
+<script src="js/app.js?v=4" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Place", "name": "Dalanwas", "description": "Village in Mahendragarh district, Haryana, India", "address": {"@type": "PostalAddress", "addressLocality": "Dalanwas", "addressRegion": "Haryana", "postalCode": "123024", "addressCountry": "IN"}, "geo": {"@type": "GeoCoordinates", "latitude": 28.28, "longitude": 76.15}, "url": "https://dalanwas.in/"}</script>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7F2MM6Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="skip" href="#main"><span class="en">Skip to content</span><span class="hi">मुख्य सामग्री पर जाएं</span></a>
-<div class="topbar"><div class="wrap">
-  <div class="topbar__info"><span id="tbWeather" aria-live="polite"></span><span id="tbTime"></span><span id="tbDate"></span></div>
-  <a href="tel:+919467801292">+91 94678 01292</a>
-</div></div>
-<div class="greeting" id="greeting" hidden></div>
-<header class="header"><div class="wrap">
+<header class="header" data-header><div class="wrap">
   <a class="brand" href="index.html" aria-label="Dalanwas home">
     <img class="brand__logo" src="icons/logo.svg" alt="" width="40" height="40">
     <span><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span><span class="brand__sub"><span class="en">Smart Village · Mahendragarh, Haryana</span><span class="hi">स्मार्ट विलेज · महेंद्रगढ़, हरियाणा</span></span></span>
@@ -46,90 +41,107 @@
   </div>
 </div></header>
 <main id="main">
-<section class="hero">
-  <img class="hero__img" src="images/hero.jpg" alt="" fetchpriority="high">
+<section class="hero" data-hero>
+  <div class="hero__slides" aria-hidden="true"><img class="hero__slide is-on" src="images/hero.jpg" alt="" fetchpriority="high"><img class="hero__slide" data-src="images/haryana-day-2026-prizes.jpg" alt=""><img class="hero__slide" data-src="images/library-study-hall.jpg" alt=""><img class="hero__slide" data-src="images/sawanthnathtemple.jpg" alt=""><img class="hero__slide" data-src="images/village1.jpg" alt=""></div>
   <div class="wrap hero__inner">
-    <img class="hero__emblem" src="icons/logo.svg" alt="" width="84" height="84">
-    <h1 class="hero__title"><span class="hero__en">Dalanwas</span><span class="hero__hi" lang="hi">डालनवास</span></h1>
-    <p class="en hero__lead">A progressive village of Mahendragarh, Haryana — known for its library, its soldiers and officers, and festivals the whole village celebrates together.</p><p class="hi hero__lead">महेंद्रगढ़, हरियाणा का एक प्रगतिशील गांव — अपने पुस्तकालय, देश सेवा करने वाले वीरों और मिलकर मनाए जाने वाले त्योहारों के लिए जाना जाता है।</p>
-    <div class="btn-row"><a class="btn btn--sarson" href="events.html"><span class="en">See upcoming events</span><span class="hi">आगामी कार्यक्रम देखें</span></a><a class="btn btn--ghost" href="library.html"><span class="en">Visit the library</span><span class="hi">पुस्तकालय देखें</span></a></div>
-    <ul class="hero__facts">
-      <li><b><span class="en">Samvat 1454</span><span class="hi">सम्वत 1454</span></b><span><span class="en">Founded by Daluram</span><span class="hi">डालूराम द्वारा स्थापित</span></span></li>
-      <li><b>15 km</b><span><span class="en">from Mahendragarh</span><span class="hi">महेंद्रगढ़ से</span></span></li>
-      <li><b><span class="en">Satnali</span><span class="hi">सतनाली</span></b><span><span class="en">Tehsil</span><span class="hi">तहसील</span></span></li>
-      <li><b>123024</b><span><span class="en">PIN code</span><span class="hi">पिन कोड</span></span></li>
-    </ul>
+    <div class="hero__main">
+      <p class="hero__chip"><span id="tbWeather"></span><span id="tbDate"></span><span id="tbTime"></span></p>
+      <p class="hero__greet" id="greeting" hidden></p>
+      <h1 class="hero__title"><span class="hero__en">Dalanwas</span><span class="hero__hi" lang="hi">डालनवास</span></h1>
+      <p class="en hero__lead">A progressive village of Mahendragarh, Haryana — known for its library, its soldiers and officers, and festivals the whole village celebrates together.</p><p class="hi hero__lead">महेंद्रगढ़, हरियाणा का एक प्रगतिशील गांव — अपने पुस्तकालय, देश सेवा करने वाले वीरों और मिलकर मनाए जाने वाले त्योहारों के लिए जाना जाता है।</p>
+      <div class="btn-row"><a class="btn btn--sarson btn--lg" href="events.html"><span class="en">Upcoming events</span><span class="hi">आगामी कार्यक्रम</span></a><a class="btn btn--glass btn--lg" href="library.html#results"><span class="en">Exam results</span><span class="hi">परीक्षा परिणाम</span></a></div>
+    </div>
+    <aside class="hero__next" id="nextEvent" aria-live="polite"></aside>
   </div>
+  <div class="hero__dots" role="tablist" aria-label="Photos"></div>
 </section>
 
-<section class="board-strip"><div class="wrap board-grid">
-  <div class="panel" id="notices-panel">
-    <h2><span class="en">Notice board</span><span class="hi">सूचना पट</span><a href="events.html"><span class="en">All events</span><span class="hi">सभी कार्यक्रम</span></a></h2>
-    <ul class="notices" id="notices" data-limit="6" aria-live="polite"></ul>
-  </div>
-  <div class="panel" id="weather-panel">
-    <h2 id="weather-title"><span class="en">Weather in Dalanwas</span><span class="hi">डालनवास का मौसम</span></h2>
-    <div id="weather"><p class="muted"><span class="en">Loading forecast…</span><span class="hi">मौसम लोड हो रहा है…</span></p></div>
+<section class="section bento-sec"><div class="wrap">
+  <div class="bento">
+    <a class="tile tile--big" id="tileResult" href="library.html#results" style="background-image:url('images/thumbs/haryana-day-2026-prizes.jpg')"></a>
+    <a class="tile tile--wide" href="library.html" style="background-image:url('images/thumbs/library-study-hall.jpg')">
+      <span class="tile__tag"><span class="en">Library</span><span class="hi">पुस्तकालय</span></span>
+      <h3><span class="en">Baba Sawanth Nath Library</span><span class="hi">बाबा सावंतनाथ पुस्तकालय</span></h3>
+      <p class="en">5,000+ books, open every day from 9 AM to 11 PM.</p><p class="hi">5,000+ पुस्तकें, प्रतिदिन सुबह 9 से रात 11 बजे तक खुला।</p>
+    </a>
+    <a class="tile" href="events.html" style="background-image:url('images/thumbs/jagran-2026.jpg')">
+      <span class="tile__tag"><span class="en">Events</span><span class="hi">कार्यक्रम</span></span>
+      <h3><span class="en">Festivals and melas</span><span class="hi">त्योहार और मेले</span></h3>
+    </a>
+    <a class="tile" href="gallery.html" style="background-image:url('images/thumbs/sawanthnathtemple.jpg')">
+      <span class="tile__tag"><span class="en">Gallery</span><span class="hi">गैलरी</span></span>
+      <h3><span class="en">Photos and videos</span><span class="hi">फोटो और वीडियो</span></h3>
+    </a>
+    <div class="tile tile--panel tile--notices" id="notices-panel">
+      <h3><span class="en">Notice board</span><span class="hi">सूचना पट</span></h3>
+      <ul class="notices" id="notices" data-limit="4"></ul>
+    </div>
+    <div class="tile tile--panel tile--weather" id="weather-panel">
+      <h3><span class="en">Weather in Dalanwas</span><span class="hi">डालनवास का मौसम</span></h3>
+      <div id="weather"><p class="muted"><span class="en">Loading forecast…</span><span class="hi">मौसम लोड हो रहा है…</span></p></div>
+    </div>
   </div>
 </div></section>
 
-<section class="section" id="about"><div class="wrap split">
+<section class="band"><div class="wrap band__grid">
+  <div><span class="num"><span data-count="4400">4,400</span></span><span class="lbl"><span class="en">People today</span><span class="hi">आज की जनसंख्या</span></span></div>
+  <div><span class="num"><span data-count="850">850</span></span><span class="lbl"><span class="en">Families</span><span class="hi">परिवार</span></span></div>
+  <div><span class="num"><span data-count="76.65">76.65</span>%</span><span class="lbl"><span class="en">Literacy (Census 2011)</span><span class="hi">साक्षरता (जनगणना 2011)</span></span></div>
+  <div><span class="num"><span data-count="50">50</span>+</span><span class="lbl"><span class="en">Selected in government jobs</span><span class="hi">सरकारी नौकरी में चयनित</span></span></div>
+  <div><span class="num">1454</span><span class="lbl"><span class="en">Founded, Samvat</span><span class="hi">स्थापना, सम्वत</span></span></div>
+</div></section>
+
+<section class="section" id="about"><div class="wrap about">
+  <div class="collage" aria-hidden="true">
+    <img class="collage__a" loading="lazy" src="images/thumbs/village1.jpg" alt="">
+    <img class="collage__b" loading="lazy" src="images/thumbs/babasawanthnathji.jpg" alt="">
+    <span class="collage__badge"><b><span class="en">Samvat 1454</span><span class="hi">सम्वत 1454</span></b><span class="en">Founded by Daluram</span><span class="hi">डालूराम द्वारा स्थापित</span></span>
+  </div>
   <div class="prose">
     <h2><span class="en">About Dalanwas</span><span class="hi">डालनवास के बारे में</span></h2>
-    <p class="en">Dalanwas is a vibrant rural settlement in the Mahendragarh district of Haryana, India. About 15 km from the district headquarters at Mahendragarh and close to Satnali, the village is part of Satnali Tehsil and is governed by its elected Gram Panchayat under the Panchayati Raj system.</p><p class="hi">डालनवास हरियाणा के महेन्द्रगढ़ जिले का एक जीवंत ग्रामीण गांव है। महेन्द्रगढ़ जिला मुख्यालय से लगभग 15 किलोमीटर और सतनाली के पास स्थित, यह गांव सतनाली तहसील का हिस्सा है और निर्वाचित ग्राम पंचायत द्वारा पंचायती राज प्रणाली के तहत शासित है।</p><p class="en">The 2011 Census counted 3,672 residents in 702 families — about 1,936 men and 1,736 women. Literacy stood at 76.65%, slightly above the state average, with male literacy around 89.96% and female literacy around 62.18%.</p><p class="hi">2011 की जनगणना के अनुसार, डालनवास में 702 परिवारों में कुल 3,672 निवासी थे — लगभग 1,936 पुरुष और 1,736 महिलाएं। गांव की साक्षरता दर 76.65% है, जो राज्य औसत से थोड़ी अधिक है; पुरुष साक्षरता लगभग 89.96% और महिला साक्षरता लगभग 62.18% है।</p><p class="en">Dalanwas lies on the Mahendragarh–Satnali road, with good connections to Narnaul and Pilani. Public and private buses run through the village, and railway stations are 5–10 km away, making travel for study, work and trade easy.</p><p class="hi">डालनवास महेन्द्रगढ़–सतनाली सड़क पर स्थित है, जिससे नारनौल और पिलानी जैसे शहरों से अच्छा संपर्क है। सार्वजनिक और निजी बस सेवाएं उपलब्ध हैं, और रेलवे स्टेशन 5–10 किलोमीटर के भीतर हैं।</p><p class="en">Farming is still a major occupation, yet the village puts strong emphasis on education. Government Girls Senior Secondary School, Nalanda Vidya Peeth School and several primary schools serve local children.</p><p class="hi">खेती अब भी कई परिवारों का मुख्य पेशा है, फिर भी गांव शिक्षा पर विशेष जोर देता है। यहां राजकीय कन्या वरिष्ठ माध्यमिक विद्यालय, नालंदा विद्या पीठ स्कूल और कई प्राथमिक विद्यालय हैं।</p><p class="en">The Baba Sawanth Nath Library is a community learning centre where students preparing for SSC, banking, engineering and other exams find books and a quiet place to study.</p><p class="hi">बाबा सावंतनाथ पुस्तकालय एक सामुदायिक अध्ययन केंद्र है, जहां एसएससी, बैंकिंग, इंजीनियरिंग और अन्य परीक्षाओं की तैयारी करने वाले छात्रों को पुस्तकें और शांत वातावरण मिलता है।</p><p class="en">Culturally, Dalanwas reflects the traditions of rural Haryana. Holi and Diwali are celebrated with the whole community, and fairs such as the Dadi Sati Mela keep the festive spirit alive.</p><p class="hi">सांस्कृतिक रूप से, डालनवास ग्रामीण हरियाणा की परंपराओं को दर्शाता है। होली और दीवाली पूरे गांव के साथ मनाई जाती हैं, और दादी सती मेला जैसे मेले उत्सव की भावना को जीवित रखते हैं।</p><p class="en">Life in Dalanwas balances tradition with progress — rooted in agriculture, open to education and connectivity, and held together by a close-knit community.</p><p class="hi">डालनवास में जीवन परंपरा और प्रगति का संतुलन है — कृषि में रचा-बसा, शिक्षा और संपर्क के लिए खुला, और एक घनिष्ठ समुदाय से जुड़ा हुआ।</p>
-    <a href="about.html"><span class="en">Read the village history</span><span class="hi">गांव का इतिहास पढ़ें</span></a>
-  </div>
-  <aside class="sticky-col" id="admin">
-    <h3><span class="en">Administrative information</span><span class="hi">प्रशासनिक जानकारी</span></h3>
-    <dl class="facts">
+    <p class="en">Dalanwas is a vibrant rural settlement in the Mahendragarh district of Haryana, India. About 15 km from the district headquarters at Mahendragarh and close to Satnali, the village is part of Satnali Tehsil and is governed by its elected Gram Panchayat under the Panchayati Raj system.</p><p class="hi">डालनवास हरियाणा के महेन्द्रगढ़ जिले का एक जीवंत ग्रामीण गांव है। महेन्द्रगढ़ जिला मुख्यालय से लगभग 15 किलोमीटर और सतनाली के पास स्थित, यह गांव सतनाली तहसील का हिस्सा है और निर्वाचित ग्राम पंचायत द्वारा पंचायती राज प्रणाली के तहत शासित है।</p><p class="en">The 2011 Census counted 3,672 residents in 702 families — about 1,936 men and 1,736 women. Literacy stood at 76.65%, slightly above the state average, with male literacy around 89.96% and female literacy around 62.18%.</p><p class="hi">2011 की जनगणना के अनुसार, डालनवास में 702 परिवारों में कुल 3,672 निवासी थे — लगभग 1,936 पुरुष और 1,736 महिलाएं। गांव की साक्षरता दर 76.65% है, जो राज्य औसत से थोड़ी अधिक है; पुरुष साक्षरता लगभग 89.96% और महिला साक्षरता लगभग 62.18% है।</p>
+    <details class="more"><summary><span class="en">Read more</span><span class="hi">और पढ़ें</span></summary><p class="en">Dalanwas lies on the Mahendragarh–Satnali road, with good connections to Narnaul and Pilani. Public and private buses run through the village, and railway stations are 5–10 km away, making travel for study, work and trade easy.</p><p class="hi">डालनवास महेन्द्रगढ़–सतनाली सड़क पर स्थित है, जिससे नारनौल और पिलानी जैसे शहरों से अच्छा संपर्क है। सार्वजनिक और निजी बस सेवाएं उपलब्ध हैं, और रेलवे स्टेशन 5–10 किलोमीटर के भीतर हैं।</p><p class="en">Farming is still a major occupation, yet the village puts strong emphasis on education. Government Girls Senior Secondary School, Nalanda Vidya Peeth School and several primary schools serve local children.</p><p class="hi">खेती अब भी कई परिवारों का मुख्य पेशा है, फिर भी गांव शिक्षा पर विशेष जोर देता है। यहां राजकीय कन्या वरिष्ठ माध्यमिक विद्यालय, नालंदा विद्या पीठ स्कूल और कई प्राथमिक विद्यालय हैं।</p><p class="en">The Baba Sawanth Nath Library is a community learning centre where students preparing for SSC, banking, engineering and other exams find books and a quiet place to study.</p><p class="hi">बाबा सावंतनाथ पुस्तकालय एक सामुदायिक अध्ययन केंद्र है, जहां एसएससी, बैंकिंग, इंजीनियरिंग और अन्य परीक्षाओं की तैयारी करने वाले छात्रों को पुस्तकें और शांत वातावरण मिलता है।</p><p class="en">Culturally, Dalanwas reflects the traditions of rural Haryana. Holi and Diwali are celebrated with the whole community, and fairs such as the Dadi Sati Mela keep the festive spirit alive.</p><p class="hi">सांस्कृतिक रूप से, डालनवास ग्रामीण हरियाणा की परंपराओं को दर्शाता है। होली और दीवाली पूरे गांव के साथ मनाई जाती हैं, और दादी सती मेला जैसे मेले उत्सव की भावना को जीवित रखते हैं।</p><p class="en">Life in Dalanwas balances tradition with progress — rooted in agriculture, open to education and connectivity, and held together by a close-knit community.</p><p class="hi">डालनवास में जीवन परंपरा और प्रगति का संतुलन है — कृषि में रचा-बसा, शिक्षा और संपर्क के लिए खुला, और एक घनिष्ठ समुदाय से जुड़ा हुआ।</p></details>
+    <dl class="facts" id="admin">
       <dt><span class="en">District</span><span class="hi">जिला</span></dt><dd><span class="en">Mahendragarh</span><span class="hi">महेंद्रगढ़</span></dd>
       <dt><span class="en">Tehsil</span><span class="hi">तहसील</span></dt><dd><span class="en">Satnali</span><span class="hi">सतनाली</span></dd>
-      <dt><span class="en">State</span><span class="hi">राज्य</span></dt><dd><span class="en">Haryana</span><span class="hi">हरियाणा</span></dd>
       <dt><span class="en">PIN code</span><span class="hi">पिन कोड</span></dt><dd>123024</dd>
-      <dt><span class="en">Gram Panchayat</span><span class="hi">ग्राम पंचायत</span></dt><dd><span class="en">Dalanwas</span><span class="hi">डालनवास</span></dd>
       <dt><span class="en">Sarpanch</span><span class="hi">सरपंच</span></dt><dd>Smt. Sunita Devi W/O Sh. Ombir Singh</dd>
       <dt><span class="en">Total votes</span><span class="hi">कुल मतदाता</span></dt><dd>3,000</dd>
     </dl>
-  </aside>
-</div>
-<div class="wrap">
-  <div class="stats">
-    <div><span class="num"><span data-count="4400">4,400</span></span><span class="lbl"><span class="en">Population today (3,672 in 2011)</span><span class="hi">आज की जनसंख्या (2011 में 3,672)</span></span></div>
-    <div><span class="num"><span data-count="850">850</span></span><span class="lbl"><span class="en">Families (702 in 2011)</span><span class="hi">परिवार (2011 में 702)</span></span></div>
-    <div><span class="num"><span data-count="76.65">76.65</span>%</span><span class="lbl"><span class="en">Literacy, 2011 Census</span><span class="hi">साक्षरता, जनगणना 2011</span></span></div>
-    <div><span class="num"><span data-count="5">5</span></span><span class="lbl"><span class="en">Schools nearby</span><span class="hi">आसपास के विद्यालय</span></span></div>
+    <a class="btn btn--neel" href="about.html"><span class="en">Read the village history</span><span class="hi">गांव का इतिहास पढ़ें</span></a>
   </div>
 </div></section>
 
-<section class="section" style="padding-top:0"><div class="wrap"><div class="next-event" id="nextEvent"></div></div></section>
-
-<section class="section section--tint" id="pride-section"><div class="wrap">
+<section class="section section--dark" id="pride-section"><div class="wrap">
   <div class="section-head"><h2><span class="en">Pride of Dalanwas</span><span class="hi">डालनवास का गौरव</span></h2><p class="en">People from our village who have served the nation with distinction.</p><p class="hi">हमारे गांव के वे लोग जिन्होंने देश की सेवा में नाम कमाया।</p></div>
-  <div class="people" id="pride"></div>
+  <div class="people people--medals" id="pride"></div>
 </div></section>
 
 <section class="section" id="sarpanch-section"><div class="wrap">
-  <div class="section-head" id="sarpanch-head"><h2><span class="en">Sarpanch of Dalanwas</span><span class="hi">डालनवास के सरपंच</span></h2><p class="en">Every sarpanch who has led the Gram Panchayat, from the first to today.</p><p class="hi">पहले से लेकर आज तक, ग्राम पंचायत का नेतृत्व करने वाले सभी सरपंच।</p></div>
+  <div class="section-head"><h2><span class="en">Sarpanch of Dalanwas</span><span class="hi">डालनवास के सरपंच</span></h2><p class="en">Every sarpanch who has led the Gram Panchayat, from the first to today.</p><p class="hi">पहले से लेकर आज तक, ग्राम पंचायत का नेतृत्व करने वाले सभी सरपंच।</p></div>
   <ol class="timeline" id="sarpanch"></ol>
 </div></section>
 
-<section class="section section--tint"><div class="wrap">
-  <div class="section-head"><h2><span class="en">Voices from the village</span><span class="hi">गांव की आवाज़</span></h2></div>
-  <div class="quotes">
+<section class="section section--sarson"><div class="wrap">
+  <div class="quotes quotes--big">
     <blockquote class="quote"><p class="en">This library is the backbone of our village’s education. Every child here dreams bigger.</p><p class="hi">यह पुस्तकालय हमारे गांव की शिक्षा की रीढ़ है। यहां का हर बच्चा बड़े सपने देखता है।</p><footer><span class="en">Village Sarpanch</span><span class="hi">ग्राम सरपंच</span></footer></blockquote>
-    <blockquote class="quote"><p class="en">Students here show discipline, dedication and hunger to succeed. Baba Sawanth Nath Library makes it possible.</p><p class="hi">यहां के छात्रों में अनुशासन, लगन और सफलता की भूख है। बाबा सावंतनाथ पुस्तकालय इसे संभव बनाता है।</p><footer><span class="en">Senior teacher</span><span class="hi">वरिष्ठ शिक्षक</span></footer></blockquote>
+    <blockquote class="quote"><p class="en">Students here show discipline, dedication and hunger to succeed.</p><p class="hi">यहां के छात्रों में अनुशासन, लगन और सफलता की भूख है।</p><footer><span class="en">Senior teacher</span><span class="hi">वरिष्ठ शिक्षक</span></footer></blockquote>
     <blockquote class="quote"><p class="en">From this village to serving the nation — education changed my life.</p><p class="hi">इस गांव से देश सेवा तक — शिक्षा ने मेरा जीवन बदल दिया।</p><footer><span class="en">Indian Army personnel</span><span class="hi">भारतीय सेना के जवान</span></footer></blockquote>
   </div>
 </div></section>
 
-<section class="section"><div class="wrap">
-  <div class="section-head" style="display:flex;justify-content:space-between;align-items:end;gap:1rem;max-width:none;flex-wrap:wrap"><h2 style="margin:0"><span class="en">Village glimpses</span><span class="hi">गांव की झलकियां</span></h2><a href="gallery.html"><span class="en">Open the full gallery</span><span class="hi">पूरी गैलरी खोलें</span></a></div>
-  <div class="strip" data-gallery="strip" data-cat="village" data-limit="10"></div>
-</div></section>
+<section class="section marquee-sec" aria-label="Village glimpses">
+  <div class="wrap section-head section-head--row"><h2><span class="en">Village glimpses</span><span class="hi">गांव की झलकियां</span></h2><a class="btn btn--ghost" href="gallery.html"><span class="en">Open the gallery</span><span class="hi">गैलरी खोलें</span></a></div>
+  <div class="marquee"><div class="marquee__track" data-gallery="marquee" data-cat="village heritage library" data-limit="16"></div></div>
+</section>
 
-<section class="section" style="padding-top:0"><div class="wrap">
-  <div class="section-head"><h2><span class="en">Find Dalanwas</span><span class="hi">डालनवास कैसे पहुंचें</span></h2><p class="en">On the Mahendragarh–Satnali road, about 15 km from Mahendragarh.</p><p class="hi">महेंद्रगढ़–सतनाली सड़क पर, महेंद्रगढ़ से लगभग 15 किलोमीटर।</p></div>
+<section class="section cta" style="padding-top:0"><div class="wrap cta__grid">
   <iframe class="map" title="Map of Dalanwas" loading="lazy" src="https://www.google.com/maps?q=Dalanwas,Haryana&output=embed"></iframe>
+  <div class="cta__box">
+    <h2><span class="en">Visit Dalanwas</span><span class="hi">डालनवास आइए</span></h2>
+    <p class="en">On the Mahendragarh–Satnali road, about 15 km from Mahendragarh. Buses run through the village; railway stations are 5–10 km away.</p><p class="hi">महेंद्रगढ़–सतनाली सड़क पर, महेंद्रगढ़ से लगभग 15 किलोमीटर। बसें गांव से होकर जाती हैं; रेलवे स्टेशन 5–10 किलोमीटर दूर हैं।</p>
+    <div class="btn-row"><a class="btn btn--sarson" href="https://www.google.com/maps/dir/?api=1&destination=Dalanwas,Haryana" target="_blank" rel="noopener"><span class="en">Get directions</span><span class="hi">रास्ता देखें</span></a><a class="btn btn--glass" href="contact.html"><span class="en">Contact us</span><span class="hi">संपर्क करें</span></a></div>
+  </div>
 </div></section>
 </main>
 <footer class="footer"><div class="wrap">
