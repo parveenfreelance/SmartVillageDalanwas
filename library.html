@@ -1,1392 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P7F2MM6Q');</script>
 <meta charset="UTF-8">
-<title>Baba Sawanth Nath Library | Dalanwas</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baba Sawanth Nath Library | Village Dalanwas</title>
+<meta name="description" content="Community library in Dalanwas for competitive exam preparation: 5000+ books, open 9 AM to 11 PM, success stories, reports and donations.">
+<link rel="canonical" href="https://dalanwas.in/library.html">
+<meta property="og:title" content="Baba Sawanth Nath Library | Village Dalanwas">
+<meta property="og:description" content="Community library in Dalanwas for competitive exam preparation: 5000+ books, open 9 AM to 11 PM, success stories, reports and donations.">
+<meta property="og:image" content="https://dalanwas.in/images/hero.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1F3A68">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-48.png" sizes="48x48">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preload" href="fonts/yatra-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/mukta-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var t=localStorage.getItem('dv-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;if(localStorage.getItem('dv-lang')==='hi')document.documentElement.lang='hi'}catch(e){}</script>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/data.js" defer></script>
+<script src="js/app.js" defer></script>
 
-<!-- GOOGLE FONTS & ICONS -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- FULLCALENDAR CSS -->
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
-
-<!-- FULLCALENDAR JS -->
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-
-
-<!-- CHARTJS -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<style>
-body{margin:0;font-family:'Roboto',sans-serif;background:#f4f6f9;}
-
-/* HEADER */
-header {
-  position: relative;
-  height: 150px;
-  overflow: hidden;
-  text-align: center;
-  color: white;
-}
-
-#headerCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.header-content {
-  position: relative;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.header-content h1 {
-  font-size: 36px;
-  font-weight: bold;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-}
-
-.header-content p {
-  font-size: 16px;
-  margin-top: 8px;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-}
-
-
-/* LANGUAGE TOGGLE */
-.lang-toggle {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-}
-.lang-toggle button {
-  padding: 6px 10px;
-  margin-left: 4px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* NAV */
-nav {
-  background: #1f2d3d;
-  text-align: center;
-  padding: 12px;
-}
-nav a {
-  color: white;
-  margin: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav a:hover { text-decoration: underline; }
-
-/* NOTICE TICKER */
-.notice-bar{background:#fff3cd;border-left:6px solid #ffc107;overflow:hidden;white-space:nowrap;padding:10px;font-weight:bold;margin:0 20px;border-radius:8px;}
-.notice-text{display:inline-block;padding-left:100%;animation:scroll 20s linear infinite;}
-@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-100%);}}
-
-/* SLIDER */
-.slider { position: relative; max-height:400px; overflow: hidden; margin:20px auto; border-radius:12px; max-width:1000px; box-shadow:0 10px 25px rgba(0,0,0,0.1);}
-.slide { display: none; }
-.slide img { width: 100%; height: 400px; object-fit: cover; transition: opacity 1s ease-in-out; }
-.active { display: block; }
-
-/* SECTIONS */
-section{background:white;margin:20px;padding:20px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.05);opacity:0;transform:translateY(30px);transition:all 1s;}
-section.visible{opacity:1;transform:translateY(0);}
-section h2{text-align:center;color:#2c3e50;margin-bottom:15px;}
-
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:15px;}
-.card{background:#ecf0f1;padding:15px;border-radius:12px;text-align:center;font-weight:bold;transition: transform 0.3s;}
-.card:hover{transform:scale(1.05);}
-.counter{font-size:24px;color:#e67e22;}
-
-/* BOOKS CAROUSEL */
-.books-carousel{display:flex;overflow-x:auto;scroll-behavior:smooth;gap:15px;padding-bottom:10px;}
-.book-card{min-width:180px;background:#fff;border-radius:12px;padding:15px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,0.05);transition: transform 0.3s, box-shadow 0.3s;}
-.book-card:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.15);}
-
-/* EVENTS */
-.events{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
-.event-card{background:#fef9f0;border-left:6px solid #f39c12;padding:15px;border-radius:10px;transition: transform 0.3s;}
-.event-card:hover{transform:scale(1.05);}
-
-/* PHOTO GALLERY */
-.photo-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.photo-card{position:relative;overflow:hidden;border-radius:12px;}
-.photo-card img{width:100%;height:220px;object-fit:cover;transition:transform 0.5s ease, filter 0.5s ease; cursor:pointer;}
-.photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65),rgba(0,0,0,0.15));color:white;display:flex;align-items:flex-end;padding:15px;font-size:16px;font-weight:bold;opacity:0;transition:opacity 0.4s ease;}
-.photo-card:hover img{transform:scale(1.12);filter:brightness(0.9);}
-.photo-card:hover .photo-overlay{opacity:1;}
-.photo-card:hover{box-shadow:0 12px 25px rgba(0,0,0,0.35);}
-
-/* VIDEO GALLERY */
-.video-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.video-gallery iframe{width:100%;height:200px;border-radius:10px;}
-
-/* LIGHTBOX */
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:1000;}
-.lightbox img{max-width:90%;max-height:85%;}
-.lightbox span{position:absolute;color:white;font-size:35px;cursor:pointer;}
-.close{top:20px;right:30px;}
-.prev{left:20px;}
-.next{right:20px;}
-
-/* DONATION */
-.donation{text-align:center;}
-.donation img{max-width:200px;margin-top:10px;}
-
-/* DONORS */
-.donors canvas{max-width:600px;margin:20px auto;display:block;}
-
-/* CALENDAR */
-#libraryCalendar{max-width:900px;margin:20px auto;}
-
-/* FOOTER */
-footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
-
-#booksSection {
-  background: linear-gradient(135deg, #fceabb, #f8b500);
-  padding: 30px 20px;
-  border-radius: 12px;
-  margin: 20px 0;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  transition: background 0.5s ease;
-}
-
-/* Optional hover animation for subtle movement */
-#booksSection:hover {
-  background: linear-gradient(135deg, #f8b500, #fceabb);
-}
-
-.books-carousel .book-card {
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-}
-
-.books-carousel .book-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  background: rgba(255,255,255,1);
-}
-
-#eventTooltip {
-  position: fixed; /* IMPORTANT */
-  background: rgba(0,0,0,0.9);
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 14px;
-  display: none;
-  z-index: 999999; /* ABOVE EVERYTHING */
-  pointer-events: none;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
-  max-width: 280px;
-  line-height: 1.4;
-}
-
-/* EVENTS + CALENDAR SPLIT */
-/* EVENTS SECTION */
-.events-section {
-  padding: 60px 20px;
-}
-
-/* FLEX WRAP */
-.events-wrap {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;   /* 🔥 KEY FIX */
-}
-
-/* LEFT PANEL */
-.event-list {
-  flex: 1;
-}
-
-/* EVENT CARD */
-.event-item {
-  background: #ffffff;
-  padding: 18px;
-  margin-bottom: 18px;
-  border-left: 5px solid #1f3c88;
-  border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
-
-.event-item h4 {
-  margin: 8px 0;
-  color: #1f3c88;
-}
-
-/* RIGHT PANEL */
-.calendar-wrap {
-  flex: 1;
-  margin-top: 0;              /* 🔥 aligns with left */
-}
-
-/* FULLCALENDAR FIX */
-#libraryCalendar {
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-}
-
-/* REMOVE EXTRA TOP SPACE FROM FULLCALENDAR */
-.fc {
-  margin-top: 0 !important;
-}
-
-/* MOBILE STACK */
-@media (max-width: 900px) {
-  .events-wrap {
-    flex-direction: column;
-  }
-}
-
-/* Responsive */
-@media(max-width:900px){
-  .events-wrap{
-    grid-template-columns:1fr;
-  }
-}
-
-  /* LOOKER STUDIO DASHBOARD */
-.looker-wrapper{
-  width:100%;
-  height: 100vh;
-  min-height: 600px; 
-  background:#ffffff;
-  border-radius:14px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.15);
-  overflow:hidden;
-}
-
-.looker-wrapper iframe{
-  width:100%;
-  height:100%;
-}
-
-/* REVIEWS SECTION */
-.reviews-section {
-  background: linear-gradient(135deg, #fdfbfb, #ebedee);
-  padding: 60px 20px;
-  text-align: center;
-  border-radius: 12px;
-}
-
-.reviews-section h2 {
-  margin-bottom: 30px;
-  color: #2c3e50;
-}
-
-/* SLIDER */
-.review-slider {
-  position: relative;
-  max-width: 700px;
-  margin: auto;
-}
-
-/* CARD */
-.review-card {
-  display: none;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-  animation: fadeSlide 0.8s ease;
-}
-
-.review-card.active {
-  display: block;
-}
-
-/* IMAGE */
-.review-card img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #1f3c88;
-  margin-bottom: 15px;
-}
-
-/* TEXT */
-.review-card h4 {
-  margin: 8px 0 5px;
-  color: #1f3c88;
-}
-
-.stars {
-  color: #f1c40f;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.review-card p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* DOTS */
-.review-dots {
-  margin-top: 20px;
-}
-
-.dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 5px;
-  background: #bbb;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dot.active {
-  background: #1f3c88;
-}
-
-/* ANIMATION */
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-  .modern-footer {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
-  padding: 50px 20px 20px;
-  position: relative;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  align-items: center;
-}
-
-/* BRAND */
-.footer-brand h3 {
-  font-size: 26px;
-  margin-bottom: 8px;
-}
-.footer-brand p {
-  margin: 4px 0;
-  opacity: 0.85;
-}
-.footer-brand .tagline {
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* LINKS */
-.footer-links h4,
-.footer-social h4 {
-  margin-bottom: 12px;
-  font-size: 18px;
-}
-.footer-links a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  margin: 6px 0;
-  opacity: 0.85;
-  transition: all 0.3s;
-}
-.footer-links a:hover {
-  opacity: 1;
-  transform: translateX(6px);
-}
-
-/* SOCIAL */
-.footer-social .social {
-  display: inline-flex;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  color: white;
-  font-size: 20px;
-  transition: all 0.4s;
-}
-
-.social.facebook { background: #3b5998; }
-.social.instagram {
-  background: radial-gradient(circle at 30% 30%, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-}
-
-.footer-social .social:hover {
-  transform: translateY(-6px) scale(1.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-/* BOTTOM */
-.footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* SCROLL TOP */
-.scroll-top {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: none;
-  background: #f1c40f;
-  color: #000;
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  transition: all 0.3s;
-}
-
-.scroll-top:hover {
-  transform: scale(1.1);
-}
-
-/* RESPONSIVE */
-@media(max-width:600px){
-  .footer-brand, .footer-links, .footer-social {
-    text-align: center;
-  }
-}
-
-
-/* MOBILE */
-@media (max-width: 600px) {
-  .review-card {
-    padding: 20px;
-  }
-}
-
-
-/* Mobile optimization */
-@media(max-width:768px){
-  .looker-wrapper{
-    height:400px;
-  }
-}
-
-/* Success wall  */
-.success-wall {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  padding: 60px 20px;
-  text-align: center;
-  color: white;
-  overflow: hidden;
-}
-
-.success-wall h2 {
-  font-size: 34px;
-  color: #f1c40f;
-}
-
-.success-wall .subtitle {
-  opacity: 0.85;
-  margin-bottom: 40px;
-}
-
-.success-track {
-  display: flex;
-  gap: 25px;
-  width: max-content;
-  animation: scrollSuccess 28s linear infinite;
-}
-
-.success-wall:hover .success-track {
-  animation-play-state: paused;
-}
-
-.student-card {
-  min-width: 220px;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px);
-  border-radius: 18px;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  transition: transform 0.4s, box-shadow 0.4s;
-}
-
-.student-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-}
-
-.student-card img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: 4px solid #f1c40f;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.student-card h4 {
-  margin: 5px 0;
-}
-
-.student-card span {
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-.badge {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #f1c40f;
-  color: #000;
-  font-size: 22px;
-  padding: 8px;
-  border-radius: 50%;
-}
-
-/* LOOP KEYFRAMES */
-@keyframes scrollSuccess {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-
-
-
-/* RESPONSIVE */
-@media(max-width:1024px){.photo-gallery,.video-gallery{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){.photo-gallery,.video-gallery{grid-template-columns:1fr;} header h1{font-size:28px;} header p{font-size:14px;}}
-  
-</style>
 </head>
-
 <body>
-
-<!-- HEADER -->
-<header>
-  <canvas id="headerCanvas"></canvas>
-  <div class="header-content">
-    <p id="heroTitle">Baba Sawanth Nath Library</p>
-    <p>Village Dalanwas, Haryana</p>
-    <div id="top-info" style="font-size:14px;">
-  🌤️ <span id="weather">Loading weather...</span> |
-  🕒 <span id="time"></span> |
-  📅 <span id="date"></span>
-</div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7F2MM6Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="hi">मुख्य सामग्री पर जाएं</span></a>
+<div class="topbar"><div class="wrap">
+  <div class="topbar__info"><span id="tbWeather" aria-live="polite"></span><span id="tbTime"></span><span id="tbDate"></span></div>
+  <a href="tel:+919467801292">+91 94678 01292</a>
+</div></div>
+<div class="greeting" id="greeting" hidden></div>
+<header class="header"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Dalanwas home">
+    <span class="milestone" aria-hidden="true"></span>
+    <span><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span><span class="brand__sub"><span class="en">Smart Village · Mahendragarh, Haryana</span><span class="hi">स्मार्ट विलेज · महेंद्रगढ़, हरियाणा</span></span></span>
+  </a>
+  <nav class="nav" aria-label="Main"><a href="index.html"><span class="en">Home</span><span class="hi">होम</span></a><a href="about.html"><span class="en">About</span><span class="hi">परिचय</span></a><a href="events.html"><span class="en">Events</span><span class="hi">कार्यक्रम</span></a><a href="library.html"><span class="en">Library</span><span class="hi">पुस्तकालय</span></a><a href="gallery.html"><span class="en">Gallery</span><span class="hi">गैलरी</span></a><a href="contact.html"><span class="en">Contact</span><span class="hi">संपर्क</span></a></nav>
+  <div class="tools">
+    <button class="icon-btn search-btn" data-search aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span class="label"><span class="en">Search</span><span class="hi">खोजें</span></span><span class="kbd">/</span></button>
+    <button class="icon-btn lang-btn" type="button">हिं</button>
+    <button class="icon-btn theme-btn" type="button" aria-label="Switch light or dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button>
+    <button class="icon-btn" id="installBtn" data-install hidden aria-label="Install the Dalanwas app" title="Install app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></button>
   </div>
-
-  <div class="lang-toggle">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('hi')">हिंदी</button>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><h1><span class="en">Baba Sawanth Nath Library</span><span class="hi">बाबा सावंतनाथ पुस्तकालय</span></h1><p class="en">A community-run library in Dalanwas where students prepare for competitive exams — open every day, 9 AM to 11 PM.</p><p class="hi">डालनवास का सामुदायिक पुस्तकालय, जहां छात्र प्रतियोगी परीक्षाओं की तैयारी करते हैं — प्रतिदिन सुबह 9 से रात 11 बजे तक खुला।</p></div></section>
+<section class="section"><div class="wrap">
+  <div class="lib-stats">
+    <div><span class="num"><span data-count="5000">5,000</span>+</span><span class="lbl"><span class="en">Books</span><span class="hi">पुस्तकें</span></span></div>
+    <div><span class="num"><span data-count="180">180</span>+</span><span class="lbl"><span class="en">Students enrolled</span><span class="hi">नामांकित छात्र</span></span></div>
+    <div><span class="num"><span data-count="50">50</span>+</span><span class="lbl"><span class="en">Selected in government jobs</span><span class="hi">सरकारी नौकरी में चयनित</span></span></div>
+    <div><span class="num">9–11</span><span class="lbl"><span class="en">Open 9 AM to 11 PM</span><span class="hi">सुबह 9 से रात 11 बजे</span></span></div>
   </div>
-</header>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="events.html">Events</a>
-  <a href="library.html">Library</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<!-- NOTICE -->
-<div class="notice-bar"><div class="notice-text">📢 Upcoming Exam Session | 🧹 Cleanliness Drive Sunday | ❤️ Blood Donation Camp | 📚 New Books Arrived</div></div>
-
-<!-- SLIDER -->
-<div class="slider">
-  <div class="slide active"><img src="images/library4.jpg"></div>
-  <div class="slide"><img src="images/library2.jpg"></div>
-  <div class="slide"><img src="images/library3.jpg"></div>
-  <div class="slide"><img src="images/library1.jpg"></div>
-</div>
-
-<!-- ABOUT -->
-<section id="descSection">
-  <h2 id="descTitle">About the Library</h2>
-  <p id="descText">Baba Sawanth Nath Library is a community-run library in Dalanwas, Haryana, dedicated to empowering students for competitive exams and fostering knowledge. The library houses a wide variety of books including engineering, medical, methodological, and competition preparation books. Time to time, the library organizes events like exams, blood donation camps, speech competitions, yoga sessions, and cleanliness drives.</p>
-</section>
-
-<section>
-  <h2>📚 Library Report (PDFs)</h2>
-
-  <ul style="line-height:2; font-size:16px;">
-    <li>
-      📘 <a href="#" onclick="openPDF('pdfs/library_chosala.pdf'); return false;">
-      Library Chosala Report PDF
-      </a>
-    </li>
-    <li>
-      📘 <a href="#" onclick="openPDF('pdfs/2025_report.pdf'); return false;">
-      2025 Library Report PDF
-      </a>
-    </li>
-    <li>
-      📢 <a href="#" onclick="openPDF('pdfs/2024_report.pdf'); return false;">
-      2024 Library Report PDF
-      </a>
-    </li>
-    <li>
-      📄 <a href="#" onclick="openPDF('pdfs/2023_report.pdf'); return false;">
-      2023 Library Report PDF
-      </a>
-    </li>
-  </ul>
-</section>
-
-  <div id="pdfModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999;">
-  <div style="width:90%; height:90%; margin:3% auto; background:#fff; border-radius:10px;">
-    <button onclick="closePDF()" style="float:right; margin:10px;">❌</button>
-    <iframe id="pdfFrame" style="width:100%; height:90%; border:none;"></iframe>
+  <div class="split" style="margin-top:3rem">
+    <div class="prose">
+      <h2><span class="en">About the library</span><span class="hi">पुस्तकालय के बारे में</span></h2>
+      <p class="en">Baba Sawanth Nath Library is a community-run library dedicated to helping students prepare for competitive exams and to spreading knowledge. It holds engineering, medical, methodology and exam-preparation books, among many others.</p><p class="hi">बाबा सावंतनाथ पुस्तकालय एक सामुदायिक पुस्तकालय है, जो छात्रों को प्रतियोगी परीक्षाओं की तैयारी में मदद करने और ज्ञान फैलाने के लिए समर्पित है। यहां इंजीनियरिंग, मेडिकल, पद्धति और परीक्षा तैयारी सहित अनेक पुस्तकें हैं।</p>
+      <p class="en">From time to time the library organises practice exams, blood donation camps, speech competitions, yoga sessions and cleanliness drives.</p><p class="hi">पुस्तकालय समय-समय पर अभ्यास परीक्षा, रक्तदान शिविर, भाषण प्रतियोगिता, योग सत्र और स्वच्छता अभियान आयोजित करता है।</p>
+    </div>
+    <div class="sticky-col">
+      <h3><span class="en">Next at the library</span><span class="hi">पुस्तकालय में आगामी</span></h3>
+      <div class="ev-list" id="libNext"></div>
+      <p style="margin-top:1rem"><a href="events.html"><span class="en">See the full calendar</span><span class="hi">पूरा कैलेंडर देखें</span></a></p>
+    </div>
   </div>
-</div>
+</div></section>
 
+<section class="section section--tint"><div class="wrap shelf">
+  <div><h2><span class="en">On the shelves</span><span class="hi">अलमारियों में</span></h2><ul class="spines"><li><span class="en">Engineering</span><span class="hi">इंजीनियरिंग</span></li><li><span class="en">Medical</span><span class="hi">मेडिकल</span></li><li><span class="en">Methodology</span><span class="hi">पद्धति</span></li><li><span class="en">Competition prep</span><span class="hi">प्रतियोगी परीक्षा</span></li><li><span class="en">General knowledge</span><span class="hi">सामान्य ज्ञान</span></li><li><span class="en">Fiction and non-fiction</span><span class="hi">कथा और कथेतर</span></li></ul></div>
+  <div><h2><span class="en">Activities</span><span class="hi">गतिविधियां</span></h2><ul class="checks"><li><span class="en">Exam practice sessions</span><span class="hi">परीक्षा अभ्यास सत्र</span></li><li><span class="en">Blood donation camps</span><span class="hi">रक्तदान शिविर</span></li><li><span class="en">Speech competitions</span><span class="hi">भाषण प्रतियोगिता</span></li><li><span class="en">Yoga and wellness</span><span class="hi">योग एवं स्वास्थ्य</span></li><li><span class="en">Cleanliness drives</span><span class="hi">स्वच्छता अभियान</span></li><li><span class="en">Reading and study groups</span><span class="hi">पठन एवं अध्ययन समूह</span></li></ul></div>
+</div></section>
 
-<!-- STATS -->
-<section id="statsSection">
-  <h2 id="statsTitle">Library at a Glance</h2>
-  <div class="stats">
-    <div class="card">📚 Total Books<br><span class="counter" data-target="5000">0</span>+</div>
-    <div class="card">👩‍🎓 Students Enrolled<br><span class="counter" data-target="180">0</span>+</div>
-    <div class="card">🏆 Selected in Govt Jobs<br><span class="counter" data-target="50">0</span>+</div>
-    <div class="card">🕒 Opening Hours<br>9 AM - 11 PM</div>
+<section class="section" id="reports"><div class="wrap">
+  <div class="section-head"><h2><span class="en">Library reports</span><span class="hi">पुस्तकालय रिपोर्ट</span></h2><p class="en">Open or download the yearly reports (PDF).</p><p class="hi">वार्षिक रिपोर्ट खोलें या डाउनलोड करें (पीडीएफ)।</p></div>
+  <div class="reports"><a class="report" href="pdfs/library_chosala.pdf" target="_blank" rel="noopener"><span class="doc">PDF</span><span><b><span class="en">Library Chosala report</span><span class="hi">पुस्तकालय चौसाला रिपोर्ट</span></b><span><span class="en">Opens in a new tab</span><span class="hi">नए टैब में खुलेगा</span></span></span></a><a class="report" href="pdfs/2025_report.pdf" target="_blank" rel="noopener"><span class="doc">PDF</span><span><b><span class="en">Library report 2025</span><span class="hi">पुस्तकालय रिपोर्ट 2025</span></b><span><span class="en">Opens in a new tab</span><span class="hi">नए टैब में खुलेगा</span></span></span></a><a class="report" href="pdfs/2024_report.pdf" target="_blank" rel="noopener"><span class="doc">PDF</span><span><b><span class="en">Library report 2024</span><span class="hi">पुस्तकालय रिपोर्ट 2024</span></b><span><span class="en">Opens in a new tab</span><span class="hi">नए टैब में खुलेगा</span></span></span></a><a class="report" href="pdfs/2023_report.pdf" target="_blank" rel="noopener"><span class="doc">PDF</span><span><b><span class="en">Library report 2023</span><span class="hi">पुस्तकालय रिपोर्ट 2023</span></b><span><span class="en">Opens in a new tab</span><span class="hi">नए टैब में खुलेगा</span></span></span></a></div>
+</div></section>
+
+<section class="section section--tint" id="success"><div class="wrap">
+  <div class="section-head"><h2><span class="en">Student success wall</span><span class="hi">छात्र सफलता दीवार</span></h2><p class="en">Students of the library who have been selected — success born from books and discipline.</p><p class="hi">पुस्तकालय के चयनित छात्र — पुस्तकों और अनुशासन से मिली सफलता।</p></div>
+  <div class="success-tools">
+    <label class="sr-only" for="successSearch">Search names</label>
+    <input class="input" id="successSearch" type="search" style="max-width:320px" data-ph-en="Search by name" data-ph-hi="नाम से खोजें">
+    <label class="sr-only" for="successFilter">Filter by selection</label>
+    <select class="input" id="successFilter"></select>
   </div>
-</section>
+  <div class="success" id="successWall"></div>
+</div></section>
 
-<!-- BOOKS CAROUSEL -->
-<section id="booksSection">
-  <h2 id="booksTitle">Book Categories</h2>
-  <div class="books-carousel">
-    <div class="book-card">Engineering Books</div>
-    <div class="book-card">Medical Books</div>
-    <div class="book-card">Methodological Books</div>
-    <div class="book-card">Competition Prep</div>
-    <div class="book-card">General Knowledge</div>
-    <div class="book-card">Fiction & Non-Fiction</div>
-  </div>
-</section>
+<section class="section"><div class="wrap">
+  <div class="section-head"><h2><span class="en">What people say</span><span class="hi">लोगों की राय</span></h2></div>
+  <div class="quotes" id="reviews"></div>
+</div></section>
 
-<!-- EVENTS -->
-<section id="eventsSection">
-  <h2 id="eventsTitle">Events & Activities</h2>
-  <div class="events">
-    <div class="event-card"><i class="fas fa-file-alt"></i> Exam Practice Sessions</div>
-    <div class="event-card"><i class="fas fa-hand-holding-heart"></i> Blood Donation Camps</div>
-    <div class="event-card"><i class="fas fa-microphone"></i> Speech Competitions</div>
-    <div class="event-card"><i class="fas fa-child"></i> Yoga & Wellness</div>
-    <div class="event-card"><i class="fas fa-broom"></i> Cleanliness Drives</div>
-    <div class="event-card"><i class="fas fa-book"></i> Reading & Study Groups</div>
-  </div>
-</section>
+<section class="section section--tint"><div class="wrap">
+  <div class="section-head" style="display:flex;justify-content:space-between;align-items:end;gap:1rem;max-width:none;flex-wrap:wrap"><h2 style="margin:0"><span class="en">Inside the library</span><span class="hi">पुस्तकालय की झलक</span></h2><a href="gallery.html"><span class="en">More photos</span><span class="hi">और फोटो</span></a></div>
+  <div class="masonry" data-gallery="masonry" data-cat="library"></div>
+  <div class="videos" data-videos="library" style="margin-top:1.5rem"></div>
+</div></section>
 
-<!-- EVENTS & CALENDAR -->
-<section class="events-section">
-  <h2>Events & Calendar</h2>
-
-  <div class="events-wrap">
-
-    <!-- LEFT : EVENT DETAILS -->
-    <div class="event-list">
-      <div class="event-item">
-        <div class="date">📅 03 March 2026</div>
-        <h4>Holi Milan Samaroh</h4>
-        <p>
-        Celebrate the festival of colors with joy, unity, and cultural harmony at our Holi Milan Samaroh. 
-        The event will include wonderful opportunity for community members to come together and strengthen bonds of friendship and togetherness.
-      </p>
-      </div>
-
-      <div class="event-item">
-        <div class="date">📅 23 March 2026</div>
-        <h4>Competition Examination</h4>
-        <p>
-          Practice examination for government job aspirants to evaluate
-          preparation level and exam strategy.
-        </p>
-      </div>
-      <div class="event-item">
-        <div class="date">📅 14 April 2026</div>
-        <h4>Competition Examination</h4>
-        <p>
-          Practice examination for government job aspirants to evaluate
-          preparation level and exam strategy.
-        </p>
-      </div>
-
-      <div class="event-item">
-        <div class="date">📅 1 June 2026</div>
-        <h4>Yoga & Wellness Session</h4>
-        <p>
-          Morning yoga and meditation session focusing on mental health,
-          discipline, and concentration for students.
-        </p>
-      </div>
-
-      <div class="event-item">
-        <div class="date">📅 5 June 2026</div>
-        <h4>Speech Competition</h4>
-        <p>
-        An engaging speech competition designed to encourage confidence, creativity, and effective public speaking skills among participants.
-        </p>
-      </div>
-      <div class="event-item">
-        <div class="date">📅 1 November 2026</div>
-        <h4>Competition Examination, Haryana GK</h4>
-        <p>
-        A competitive examination focused on Haryana General Knowledge to assess participants’ understanding of the state's history, culture, geography, politics, and current affairs. 
-        </p>
-      </div>
-      <div class="event-item">
-        <div class="date">📅 25 December 2026</div>
-        <h4>Speech Competition</h4>
-        <p>
-        An engaging speech competition designed to encourage confidence, creativity, and effective public speaking skills among participants.
-        </p>
+<section class="section" id="donate"><div class="wrap">
+  <div class="donate">
+    <div>
+      <h2><span class="en">Support the library</span><span class="hi">पुस्तकालय को सहयोग दें</span></h2>
+      <p class="en">Your donation keeps the shelves stocked, the lights on until 11 PM, and the practice exams free for students.</p><p class="hi">आपका दान पुस्तकों, रात 11 बजे तक बिजली, और छात्रों के लिए निःशुल्क अभ्यास परीक्षाओं में मदद करता है।</p>
+      <div class="btn-row" style="align-items:center">
+        <span class="upi">UPI: babasawanthnath@upi <button class="btn btn--sm btn--neel" data-copy="babasawanthnath@upi"><span class="en">Copy</span><span class="hi">कॉपी</span></button></span>
+        <a class="btn btn--sarson" href="upi://pay?pa=babasawanthnath@upi&pn=Baba%20Sawanth%20Nath%20Library&cu=INR"><span class="en">Pay with a UPI app</span><span class="hi">UPI ऐप से भुगतान करें</span></a>
       </div>
     </div>
-
-    <!-- RIGHT : CALENDAR -->
-    <div class="calendar-wrap">
-      <div id="libraryCalendar"></div>
-    </div>
-
+    <img class="qr" src="images/upi-qr.png" alt="UPI QR code for Baba Sawanth Nath Library" onerror="this.remove()">
   </div>
-</section>
+</div></section>
 
-
-<!-- LIBRARY GALLERY -->
-<section id="gallerySection">
-  <h2 id="galleryTitle">Library Gallery</h2>
-  <div class="divider"></div>
-
-  <h3 id="photoTitle">Photos</h3>
-  <div class="photo-gallery">
-    <div class="photo-card"><img src="images/library1.jpg" onclick="openLightbox(0)"><div class="photo-overlay">Library Front</div></div>
-    <div class="photo-card"><img src="images/library2.jpg" onclick="openLightbox(1)"><div class="photo-overlay">Arial view</div></div>
-    <div class="photo-card"><img src="images/library3.jpg" onclick="openLightbox(2)"><div class="photo-overlay">Yoga Day celebration</div></div>
-    <div class="photo-card"><img src="images/library4.jpg" onclick="openLightbox(3)"><div class="photo-overlay">Community Event</div></div>
-    <div class="photo-card"><img src="images/library5.jpg" onclick="openLightbox(4)"><div class="photo-overlay">Study Area</div></div>
-  </div>
-
-  <h3 id="videoTitle">Videos</h3>
-  <div class="video-gallery">
-    <iframe src="https://www.youtube.com/embed/jIokX36WDWQ" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/FwQaMi8NYYs" allowfullscreen></iframe>
-  </div>
-</section>
-
-<div class="lightbox" id="lightbox">
-  <span class="close" onclick="closeLightbox()">×</span>
-  <span class="prev" onclick="changeSlide(-1)">❮</span>
-  <span class="next" onclick="changeSlide(1)">❯</span>
-  <img id="lightboxImg">
-</div>
-
-<!-- DONATION -->
-<section class="donation" id="donationSection">
-  <h2 id="donateTitle">Support the Library</h2>
-  <p id="donateText">Your donation helps us maintain books, host events, and support students.</p>
-  <p>UPI ID: <b id="upiId">babasawanthnath@upi</b></p>
-  <img src="images/upi-qr.png" alt="UPI QR Code">
-</section>
-
-  <!-- Pride  -->
-  <section class="success-wall">
-  <h2>🎓 Student Success Wall</h2>
-  <p class="subtitle">Success stories born from books and discipline.</p>
-
-  <div class="success-track" id="successTrack">
-
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Devender S/O Naresh Kumar</h4>
-      <span>AirForce</span>
-      <div class="badge">🏆</div>
-    </div>
-
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Sageeta D/O Suresh Kumar</h4>
-      <span>Delhi Police</span>
-      <div class="badge">⭐</div>
-    </div>
-
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Nisha D/O Sombir Singh</h4>
-      <span>Haryana Police</span>
-      <div class="badge">🎖️</div>
-    </div>
-
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Akash S/O Anand Kumar</h4>
-      <span>Clerk, Haryana</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Rohit S/O Raghubir Singh</h4>
-      <span>Haryana Police</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Mukesh S/O Raghubir Singh</h4>
-      <span>Haryana Police</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Sushant S/O Dharmbir Singh</h4>
-      <span>Haryana Gram Sachiv</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Jyoti D/O Anand Dahiya</h4>
-      <span>Haryana Police</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Jasvinder S/O Vijay Singh</h4>
-      <span>Haryana Police</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Ravi Lamba S/O Dharambir Singh</h4>
-      <span>Haryana Police</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Joginder Singh S/O Maniram Singh</h4>
-      <span>Haryana Gram Sachiv</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Anoop Rhoila S/O Prathivi Singh</h4>
-      <span>Haryana Gram Sachiv</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Vikas S/O Sunil Malik</h4>
-      <span>India Army</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Karanvir S/O Rajesh</h4>
-      <span>Haryana Group D</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Yashvir S/O Naresh Kumar</h4>
-      <span>Admission Jammu AIMS</span>
-      <div class="badge">🏅</div>
-    </div>
-     <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Amit Kumar S/O Anil Kumar</h4>
-      <span>India Airforce</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Anikt Kumar S/O Jaipal Singh</h4>
-      <span>CRPF</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Mandeep Singh S/O Chandarpal Singh</h4>
-      <span>ASO</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Chetan S/O Surender Singh</h4>
-      <span>NDA</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Rajkumari W/O Sushil Sharma</h4>
-      <span>NET</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Sachin S/O Sukhbir Singh</h4>
-      <span>India AirForce</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Nitin S/O Chotu Ram</h4>
-      <span>India AirForce</span>
-      <div class="badge">🏅</div>
-    </div>
-    <div class="student-card">
-      <img src="images/noimage.jpg">
-      <h4>Mamtesh S/O Parash Singh</h4>
-      <span>NET, JRF</span>
-      <div class="badge">🏅</div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- REVIEWS / TESTIMONIALS -->
-<section class="reviews-section" id="reviewsSection">
-  <h2>What People Say About Our Library</h2>
-
-  <div class="review-slider">
-
-    <div class="review-card active">
-      <img src="images/review1.jpg" alt="Reviewer">
-      <h4>Ch. Dharambir Singh(MP)</h4>
-      <div class="stars">★★★★★</div>
-      <p>
-      Baba Sawanth Nath Library is playing a remarkable role in promoting education and competitive exam preparation in the region. 
-      The disciplined environment, quality study resources, and dedication toward students truly reflect a strong commitment to academic excellence. 
-      I appreciate the efforts being made to guide and inspire our youth.
-      </p>
-    </div>
-
-    <div class="review-card">
-      <img src="images/review2.jpg" alt="Reviewer">
-      <h4>Kanwar Singh Yadav(MLA)</h4>
-      <div class="stars">★★★★★</div>
-      <p>
-        Best community library in the region. Events like mock exams and yoga
-        sessions are extremely helpful for students.
-      </p>
-    </div>
-
-    <div class="review-card">
-      <img src="images/review3.jpg" alt="Reviewer">
-      <h4>Pankaj Lamba(IPS)</h4>
-      <div class="stars">★★★★★</div>
-      <p>
-        Very disciplined and positive atmosphere. I highly recommend this
-        library for competitive exam aspirants.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- DOTS -->
-  <div class="review-dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-</section>
-
-
-<!-- DONORS -->
-<section class="donors" id="donorsSection">
-  <h2>Top Donors & Contributions</h2>
-
-  <div class="looker-wrapper">
-    <iframe
-      src="https://lookerstudio.google.com/embed/reporting/76f1c615-314c-4752-9f16-d1f9dddace1e/page/49pqF"
-      frameborder="0"
-      style="border:0"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
-
-
-<footer class="modern-footer">
-
-  <div class="footer-content">
-
-    <!-- LEFT -->
-    <div class="footer-brand">
-      <h3>🌿 Smart Village Dalanwas</h3>
-      <p>Haryana, India</p>
-      <p class="tagline">
-        Education • Community • Progress
-      </p>
-    </div>
-
-    <!-- CENTER -->
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="library.html">Library</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="footer-social">
-      <h4>Connect With Us</h4>
-
-      <a href="https://www.facebook.com/" target="_blank" class="social facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-
-      <a href="https://www.instagram.com/baba_sanwat_nath_library/" target="_blank" class="social instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-
-  </div>
-
-  <!-- BOTTOM BAR -->
-  <div class="footer-bottom">
-    <p>
-      © <span id="year"></span> Village Dalanwas | Haryana  
-      <br>
-      Developed by <b>Parveen Lamba</b>
-    </p>
-  </div>
-
-  <!-- SCROLL TOP -->
-  <button class="scroll-top" onclick="scrollToTop()">↑</button>
-
-</footer>
-
-<!-- Tooltip -->
-<div id="eventTooltip"></div>
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="section-head"><h2><span class="en">Top donors and contributions</span><span class="hi">प्रमुख दानदाता और योगदान</span></h2></div>
+  <iframe class="embed" title="Donor dashboard" loading="lazy" src="https://lookerstudio.google.com/embed/reporting/76f1c615-314c-4752-9f16-d1f9dddace1e/page/49pqF" allowfullscreen></iframe>
+</div></section>
+</main>
 <script>
-// LANGUAGE TOGGLE
-const heroTitle=document.getElementById('heroTitle');
-const heroText=document.getElementById('heroText');
-const descTitle=document.getElementById('descTitle');
-const descText=document.getElementById('descText');
-const statsTitle=document.getElementById('statsTitle');
-const booksTitle=document.getElementById('booksTitle');
-const eventsTitle=document.getElementById('eventsTitle');
-const galleryTitle=document.getElementById('galleryTitle');
-const donateTitle=document.getElementById('donateTitle');
-const donateText=document.getElementById('donateText');
-const upiId=document.getElementById('upiId');
-const photoTitle=document.getElementById('photoTitle');
-const videoTitle=document.getElementById('videoTitle');
-
-function setLang(lang){
-  if(lang==='hi'){
-    heroTitle.innerText="बाबा सावंत नाथ पुस्तकालय";
-    descTitle.innerText="पुस्तकालय के बारे में";
-    descText.innerText="बाबा सावंत नाथ पुस्तकालय डालनवास, हरियाणा में एक सामुदायिक पुस्तकालय है, जो छात्रों को प्रतियोगी परीक्षाओं की तैयारी और ज्ञान वृद्धि में सहायता करता है।";
-    statsTitle.innerText="पुस्तकालय की जानकारी";
-    booksTitle.innerText="पुस्तक श्रेणियाँ";
-    eventsTitle.innerText="कार्यक्रम और गतिविधियाँ";
-    galleryTitle.innerText="पुस्तकालय की झलकियाँ";
-    donateTitle.innerText="पुस्तकालय का समर्थन करें";
-    donateText.innerText="आपका दान हमें किताबों का रखरखाव, कार्यक्रमों और छात्रों के समर्थन में मदद करता है।";
-    upiId.innerText="babasawanthnath@upi";
-    photoTitle.innerText="फोटो";
-    videoTitle.innerText="वीडियो";
-  } else {
-    heroTitle.innerText="Baba Sawanth Nath Library";
-    descTitle.innerText="About the Library";
-    descText.innerText="Baba Sawanth Nath Library is a community-run library in Dalanwas, Haryana...";
-    statsTitle.innerText="Library at a Glance";
-    booksTitle.innerText="Book Categories";
-    eventsTitle.innerText="Events & Activities";
-    galleryTitle.innerText="Library Gallery";
-    donateTitle.innerText="Support the Library";
-    donateText.innerText="Your donation helps us maintain books, host events, and support students.";
-    upiId.innerText="babasawanthnath@upi";
-    photoTitle.innerText="Photos";
-    videoTitle.innerText="Videos";
-  }
-}
-
-// SCROLL ANIMATION
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', () => {sections.forEach(sec => {if(sec.getBoundingClientRect().top < window.innerHeight - 50){sec.classList.add('visible');}});});
-
-// COUNTER
-const counters=document.querySelectorAll('.counter');
-counters.forEach(counter=>{counter.innerText='0'; const updateCounter=()=>{const target=+counter.getAttribute('data-target'); const current=+counter.innerText; const inc=target/200; if(current<target){counter.innerText=Math.ceil(current+inc); setTimeout(updateCounter,10);} else{counter.innerText=target;}}; updateCounter();});
-
-/* ===== CALENDAR + TOOLTIP ===== */
-document.addEventListener('DOMContentLoaded', () => {
-  const tooltip = document.getElementById('eventTooltip');
-
-  const calendar = new FullCalendar.Calendar(
-    document.getElementById('libraryCalendar'),
-    {
-      initialView: 'dayGridMonth',
-      height: 'auto',
-
-      events: [
-        {
-          title: 'Blood Donation Camp',
-          start: '2025-02-10',
-          description: 'Community blood donation drive'
-        },
-        {
-          title: 'Mock Examination',
-          start: '2025-02-18',
-          description: 'Practice exam for govt job aspirants'
-        },
-        {
-          title: 'Yoga Session',
-          start: '2025-02-25',
-          description: 'Yoga & wellness session for students'
-        }
-      ],
-
-      eventMouseEnter(info) {
-        tooltip.style.display = 'block';
-        tooltip.innerHTML = `
-          <strong>${info.event.title}</strong><br>
-          📅 ${info.event.start.toDateString()}<br>
-          📝 ${info.event.extendedProps.description}
-        `;
-      },
-
-      eventMouseLeave() {
-        tooltip.style.display = 'none';
-      }
-    }
-  );
-
-  calendar.render();
-
-  /* Tooltip follow mouse */
-  document.addEventListener('mousemove', (e) => {
-    if (tooltip.style.display === 'block') {
-      let x = e.clientX + 15;
-      let y = e.clientY + 15;
-
-      const rect = tooltip.getBoundingClientRect();
-
-      if (x + rect.width > window.innerWidth) {
-        x = e.clientX - rect.width - 15;
-      }
-      if (y + rect.height > window.innerHeight) {
-        y = e.clientY - rect.height - 15;
-      }
-
-      tooltip.style.left = x + 'px';
-      tooltip.style.top = y + 'px';
-    }
-  });
-});
-
-
-// IMAGE SLIDER
-let slideIndex=0;
-const slides=document.querySelectorAll(".slide");
-function showSlides(){slides.forEach(s=>s.classList.remove("active"));slideIndex=(slideIndex+1)%slides.length;slides[slideIndex].classList.add("active");setTimeout(showSlides,4000);}
-showSlides();
-
-// LIGHTBOX
-const galleryImages=["images/village1.jpg","images/village2.jpg","images/village3.jpg","images/village4.jpg"];
-let currentImage=0;
-function openLightbox(i){currentImage=i;document.getElementById("lightbox").style.display="flex";document.getElementById("lightboxImg").src=galleryImages[i];}
-function closeLightbox(){document.getElementById("lightbox").style.display="none";}
-function changeSlide(step){currentImage=(currentImage+step+galleryImages.length)%galleryImages.length;document.getElementById("lightboxImg").src=galleryImages[currentImage];}
+document.addEventListener("DOMContentLoaded",()=>{const el=document.getElementById("libNext");if(!el||!window.DV)return;
+const draw=()=>{const hi=document.documentElement.lang==="hi";const t=new Date();t.setHours(0,0,0,0);
+const list=DV.events.filter(e=>e.cat==="library").map(e=>{const[y,m,d]=e.date.split("-").map(Number);return{...e,w:new Date(y,m-1,d)}}).filter(e=>e.w>=t).sort((a,b)=>a.w-b.w).slice(0,3);
+el.innerHTML=list.length?list.map(e=>`<a class="person" style="text-decoration:none;color:inherit" href="events.html#${e.id}"><span class="avatar" style="border-radius:8px">${e.w.getDate()}</span><div><b>${(hi?e.hi:e.en).t}</b><span>${e.w.toLocaleDateString(hi?"hi-IN":"en-IN",{day:"numeric",month:"long",year:"numeric"})}</span></div></a>`).join(""):`<div class="empty">${hi?"अभी कोई आगामी कार्यक्रम नहीं।":"No library events scheduled yet."}</div>`};
+draw();new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]})});
 </script>
-<script>
-/* REVIEW SLIDER */
-let reviewIndex = 0;
-const reviews = document.querySelectorAll(".review-card");
-const dots = document.querySelectorAll(".dot");
-
-function showReview(index) {
-  reviews.forEach(r => r.classList.remove("active"));
-  dots.forEach(d => d.classList.remove("active"));
-
-  reviews[index].classList.add("active");
-  dots[index].classList.add("active");
-}
-
-function autoReviews() {
-  reviewIndex = (reviewIndex + 1) % reviews.length;
-  showReview(reviewIndex);
-}
-
-dots.forEach((dot, i) => {
-  dot.addEventListener("click", () => {
-    reviewIndex = i;
-    showReview(reviewIndex);
-  });
-});
-
-setInterval(autoReviews, 5000);
-</script>
-<script>
-document.getElementById("year").innerText = new Date().getFullYear();
-
-/* Scroll Top Button */
-const scrollBtn = document.querySelector(".scroll-top");
-
-window.addEventListener("scroll", () => {
-  scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-</script>
-<script>
-/* TIME & DATE */
-function updateTime() {
-  const now = new Date();
-  document.getElementById("time").innerText =
-    now.toLocaleTimeString();
-  document.getElementById("date").innerText =
-    now.toDateString();
-}
-setInterval(updateTime, 1000);
-updateTime();
-
-/* WEATHER (Open-Meteo - FREE, no API key) */
-fetch("https://api.open-meteo.com/v1/forecast?latitude=28.28&longitude=76.15&current_weather=true")
-  .then(res => res.json())
-  .then(data => {
-    const temp = data.current_weather.temperature;
-    const wind = data.current_weather.windspeed;
-    document.getElementById("weather").innerText =
-      `Dalanwas: ${temp}°C, Wind ${wind} km/h`;
-  })
-  .catch(() => {
-    document.getElementById("weather").innerText =
-      "Weather unavailable";
-  });
-</script>
-<script>
-const canvas = document.getElementById("headerCanvas");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = 250;
-
-const particles = [];
-const particleCount = 80;
-
-// Initialize particles
-for (let i = 0; i < particleCount; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 3 + 1,
-    dx: (Math.random() - 0.5) * 0.7,
-    dy: (Math.random() - 0.5) * 0.7,
-    alpha: Math.random()
-  });
-}
-
-function drawParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Animated gradient background
-  const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-  const time = Date.now() * 0.0003;
-  gradient.addColorStop(0, `hsl(${Math.sin(time)*50+200}, 70%, 40%)`);
-  gradient.addColorStop(1, `hsl(${Math.cos(time)*50+250}, 70%, 50%)`);
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  // Draw particles
-  particles.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
-    ctx.fill();
-
-    p.x += p.dx;
-    p.y += p.dy;
-
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-  });
-
-  requestAnimationFrame(drawParticles);
-}
-
-drawParticles();
-
-// Adjust canvas on resize
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = 250;
-});
-</script>
-<script>
-/* ===== INFINITE LOOP ===== */
-const track = document.getElementById("successTrack");
-const cards = [...track.children];
-
-// Duplicate once for seamless loop
-cards.forEach(card => {
-  track.appendChild(card.cloneNode(true));
-});
-
-/* ===== CONFETTI ON HOVER ===== */
-track.querySelectorAll(".student-card").forEach(card => {
-  card.addEventListener("mouseenter", () => {
-    confetti({
-      particleCount: 40,
-      spread: 70,
-      origin: { y: 0.6 }
-    });
-  });
-});
-</script>
-
-<!-- CONFETTI CDN -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script>
-function openPDF(src) {
-  document.getElementById('pdfFrame').src = src;
-  document.getElementById('pdfModal').style.display = 'block';
-}
-function closePDF() {
-  document.getElementById('pdfModal').style.display = 'none';
-}
-</script>
-
-
+<footer class="footer"><div class="wrap">
+  <div class="footer__grid">
+    <div>
+      <a class="brand" href="index.html"><span class="milestone" aria-hidden="true"></span><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span></a>
+      <p class="en">A smart village of Mahendragarh district, Haryana — education, community and progress.</p><p class="hi">हरियाणा के महेंद्रगढ़ जिले का स्मार्ट गांव — शिक्षा, समुदाय और प्रगति।</p>
+      <button class="btn btn--sarson btn--sm" data-install hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><span class="en">Install the app</span><span class="hi">ऐप इंस्टॉल करें</span></button>
+    </div>
+    <div><h3><span class="en">Pages</span><span class="hi">पेज</span></h3><ul><li><a href="index.html"><span class="en">Home</span><span class="hi">होम</span></a></li><li><a href="about.html"><span class="en">About</span><span class="hi">परिचय</span></a></li><li><a href="events.html"><span class="en">Events</span><span class="hi">कार्यक्रम</span></a></li><li><a href="library.html"><span class="en">Library</span><span class="hi">पुस्तकालय</span></a></li><li><a href="gallery.html"><span class="en">Gallery</span><span class="hi">गैलरी</span></a></li><li><a href="contact.html"><span class="en">Contact</span><span class="hi">संपर्क</span></a></li></ul></div>
+    <div><h3><span class="en">Get in touch</span><span class="hi">संपर्क करें</span></h3><ul>
+      <li><a href="tel:+919467801292">+91 94678 01292</a></li>
+      <li><a href="mailto:smartvillagedalanwas@gmail.com">smartvillagedalanwas@gmail.com</a></li>
+      <li><a href="https://wa.me/919467801292" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li><a href="https://www.instagram.com/baba_sanwat_nath_library/" target="_blank" rel="noopener">Instagram</a></li>
+    </ul></div>
+  </div>
+  <div class="footer__bottom">
+    <span>© <span data-year></span> <span class="en">Village Dalanwas, Haryana</span><span class="hi">गांव डालनवास, हरियाणा</span></span>
+    <span><span class="en">Developed by</span><span class="hi">निर्माता</span> Parveen Lamba</span>
+  </div>
+</div></footer>
+<a class="fab-wa" href="https://wa.me/919467801292" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+<nav class="tabbar" aria-label="Quick"><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span class="en">Home</span><span class="hi">होम</span></a><a href="events.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span class="en">Events</span><span class="hi">कार्यक्रम</span></a><a href="library.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5c.8 0 1.5-.7 1.5-1.5z"/></svg><span class="en">Library</span><span class="hi">पुस्तकालय</span></a><a href="gallery.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg><span class="en">Gallery</span><span class="hi">गैलरी</span></a><button type="button" data-drawer><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span class="en">More</span><span class="hi">और</span></button></nav>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu"><div class="drawer__scrim"></div><div class="drawer__panel"><a href="index.html"><span class="en">Home</span><span class="hi">होम</span></a><a href="about.html"><span class="en">About</span><span class="hi">परिचय</span></a><a href="events.html"><span class="en">Events</span><span class="hi">कार्यक्रम</span></a><a href="library.html"><span class="en">Library</span><span class="hi">पुस्तकालय</span></a><a href="gallery.html"><span class="en">Gallery</span><span class="hi">गैलरी</span></a><a href="contact.html"><span class="en">Contact</span><span class="hi">संपर्क</span></a>
+  <div class="btn-row" style="margin-top:1rem"><button class="btn btn--ghost btn--sm" data-search><span class="en">Search</span><span class="hi">खोजें</span></button><button class="btn btn--sarson btn--sm" data-install hidden><span class="en">Install the app</span><span class="hi">ऐप इंस्टॉल करें</span></button></div>
+</div></div>
 </body>
 </html>

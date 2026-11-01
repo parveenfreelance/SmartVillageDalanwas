@@ -1,715 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P7F2MM6Q');</script>
 <meta charset="UTF-8">
-<title>Dalanwas Village Gallery</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- GOOGLE FONTS & ICONS -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Photo and video gallery | Village Dalanwas</title>
+<meta name="description" content="Photos and videos of Village Dalanwas: village life, Baba Sawanth Nath Temple, Dadi Sati Temple, the library and festivals.">
+<link rel="canonical" href="https://dalanwas.in/gallery.html">
+<meta property="og:title" content="Photo and video gallery | Village Dalanwas">
+<meta property="og:description" content="Photos and videos of Village Dalanwas: village life, Baba Sawanth Nath Temple, Dadi Sati Temple, the library and festivals.">
+<meta property="og:image" content="https://dalanwas.in/images/hero.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1F3A68">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-48.png" sizes="48x48">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preload" href="fonts/yatra-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/mukta-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var t=localStorage.getItem('dv-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;if(localStorage.getItem('dv-lang')==='hi')document.documentElement.lang='hi'}catch(e){}</script>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/data.js" defer></script>
+<script src="js/app.js" defer></script>
 
-/* ===== HEADER ===== */
-/* HEADER */
-header {
-  position: relative;
-  height: 150px;
-  overflow: hidden;
-  text-align: center;
-  color: white;
-}
-
-#headerCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.header-content {
-  position: relative;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.header-content h1 {
-  font-size: 36px;
-  font-weight: bold;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-}
-
-.header-content p {
-  font-size: 16px;
-  margin-top: 8px;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-}
-
-
-/* LANGUAGE TOGGLE */
-.lang-toggle {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-}
-.lang-toggle button {
-  padding: 6px 10px;
-  margin-left: 4px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* NAV */
-nav {
-  background: #1f2d3d;
-  text-align: center;
-  padding: 12px;
-}
-nav a {
-  color: white;
-  margin: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav a:hover { text-decoration: underline; }
-
-/* ===== SECTION ===== */
-.section {
-  padding: 30px 20px;
-}
-.section h2 {
-  text-align: center;
-  color: #1f3c88;
-}
-.divider {
-  width: 80px;
-  height: 4px;
-  background: #1f3c88;
-  margin: 10px auto 25px;
-}
-
-/* ===== PHOTO GRID ===== */
-.photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-@media (max-width: 1024px) {
-  .photo-gallery { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 768px) {
-  .photo-gallery { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .photo-gallery { grid-template-columns: 1fr; }
-}
-
-/* ===== PHOTO CARD ===== */
-.photo-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.photo-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  cursor: pointer;
-}
-
-.photo-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.15));
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  padding: 15px;
-  font-size: 16px;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none; /* ✅ IMPORTANT */
-}
-
-/* Hover effect */
-.photo-card:hover img {
-  transform: scale(1.12);
-  filter: brightness(0.9);
-}
-.photo-card:hover .photo-overlay {
-  opacity: 1;
-}
-.photo-card:hover {
-  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-}
-
-/* ===== VIDEO GRID ===== */
-.video-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-@media (max-width: 1024px) {
-  .video-gallery { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 768px) {
-  .video-gallery { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .video-gallery { grid-template-columns: 1fr; }
-}
-
-.video-gallery iframe {
-  width: 100%;
-  height: 200px;
-  border-radius: 10px;
-}
-
-/* ===== LIGHTBOX ===== */
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.95);
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.lightbox img {
-  max-width: 95vw;
-  max-height: 90vh;
-  object-fit: contain;
-  animation: zoomIn 0.4s ease;
-}
-
-/* Animation */
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* Controls */
-.lightbox span {
-  position: absolute;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
-  user-select: none;
-  padding: 10px;
-}
-
-.close {
-  top: 20px;
-  right: 30px;
-}
-
-.prev {
-  left: 20px;
-}
-
-.next {
-  right: 20px;
-}
-
-
-/* FOOTER */
-footer{background:#2c3e50;color:white;text-align:center;padding:15px;}
-  
-/* ===== FOOTER ===== */
-.modern-footer {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
-  padding: 50px 20px 20px;
-  position: relative;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  align-items: center;
-}
-
-/* BRAND */
-.footer-brand h3 {
-  font-size: 26px;
-  margin-bottom: 8px;
-}
-.footer-brand p {
-  margin: 4px 0;
-  opacity: 0.85;
-}
-.footer-brand .tagline {
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* LINKS */
-.footer-links h4,
-.footer-social h4 {
-  margin-bottom: 12px;
-  font-size: 18px;
-}
-.footer-links a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  margin: 6px 0;
-  opacity: 0.85;
-  transition: all 0.3s;
-}
-.footer-links a:hover {
-  opacity: 1;
-  transform: translateX(6px);
-}
-
-/* SOCIAL */
-.footer-social .social {
-  display: inline-flex;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  color: white;
-  font-size: 20px;
-  transition: all 0.4s;
-}
-
-.social.facebook { background: #3b5998; }
-.social.instagram {
-  background: radial-gradient(circle at 30% 30%, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-}
-
-.footer-social .social:hover {
-  transform: translateY(-6px) scale(1.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-/* BOTTOM */
-.footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* SCROLL TOP */
-.scroll-top {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: none;
-  background: #f1c40f;
-  color: #000;
-  font-size: 22px;
-  cursor: pointer;
-
-  /* 🔑 CENTER ARROW PERFECTLY */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  transition: all 0.3s ease;
-}
-
-.scroll-top:hover {
-  transform: scale(1.15);
-}
-
-
-/* RESPONSIVE */
-@media(max-width:600px){
-  .footer-brand, .footer-links, .footer-social {
-    text-align: center;
-  }
-}
-
-  .events2 {
-  max-width: 1200px;
-  margin: auto;
-  padding: 2rem 1rem;
-}
-
-.events2 h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-}
-
-.events-grid2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.event-card2 {
-  background: #000;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.event-card2:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* Perfect 16:9 video ratio */
-.event-card2 iframe {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  display: block;
-}
-</style>
 </head>
-
 <body>
-<header>
-  <canvas id="headerCanvas"></canvas>
-  <div class="header-content">
-    <p id="title">Village Gallery | Photos & Videos of Village Life</p>
-    <div id="top-info" style="font-size:14px;">
-  🌤️ <span id="weather">Loading weather...</span> |
-  🕒 <span id="time"></span> |
-  📅 <span id="date"></span>
-</div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7F2MM6Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="hi">मुख्य सामग्री पर जाएं</span></a>
+<div class="topbar"><div class="wrap">
+  <div class="topbar__info"><span id="tbWeather" aria-live="polite"></span><span id="tbTime"></span><span id="tbDate"></span></div>
+  <a href="tel:+919467801292">+91 94678 01292</a>
+</div></div>
+<div class="greeting" id="greeting" hidden></div>
+<header class="header"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Dalanwas home">
+    <span class="milestone" aria-hidden="true"></span>
+    <span><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span><span class="brand__sub"><span class="en">Smart Village · Mahendragarh, Haryana</span><span class="hi">स्मार्ट विलेज · महेंद्रगढ़, हरियाणा</span></span></span>
+  </a>
+  <nav class="nav" aria-label="Main"><a href="index.html"><span class="en">Home</span><span class="hi">होम</span></a><a href="about.html"><span class="en">About</span><span class="hi">परिचय</span></a><a href="events.html"><span class="en">Events</span><span class="hi">कार्यक्रम</span></a><a href="library.html"><span class="en">Library</span><span class="hi">पुस्तकालय</span></a><a href="gallery.html"><span class="en">Gallery</span><span class="hi">गैलरी</span></a><a href="contact.html"><span class="en">Contact</span><span class="hi">संपर्क</span></a></nav>
+  <div class="tools">
+    <button class="icon-btn search-btn" data-search aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span class="label"><span class="en">Search</span><span class="hi">खोजें</span></span><span class="kbd">/</span></button>
+    <button class="icon-btn lang-btn" type="button">हिं</button>
+    <button class="icon-btn theme-btn" type="button" aria-label="Switch light or dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button>
+    <button class="icon-btn" id="installBtn" data-install hidden aria-label="Install the Dalanwas app" title="Install app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></button>
   </div>
-
-  <div class="lang-toggle">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('hi')">हिंदी</button>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><h1><span class="en">Gallery</span><span class="hi">गैलरी</span></h1><p class="en">Photos and videos of village life, temples, the library and our celebrations. Tap any photo to view it full screen.</p><p class="hi">गांव के जीवन, मंदिरों, पुस्तकालय और उत्सवों की फोटो और वीडियो। किसी भी फोटो को पूरी स्क्रीन पर देखने के लिए टैप करें।</p></div></section>
+<section class="section"><div class="wrap">
+  <div class="chips" id="galFilters" role="group" aria-label="Filter photos"></div>
+  <div class="masonry" data-gallery="masonry" data-filters="#galFilters"></div>
+</div></section>
+<section class="section section--tint"><div class="wrap">
+  <div class="section-head"><h2><span class="en">Videos</span><span class="hi">वीडियो</span></h2><p class="en">Videos load only when you tap play, to save mobile data.</p><p class="hi">मोबाइल डेटा बचाने के लिए वीडियो तभी लोड होगा जब आप प्ले दबाएंगे।</p></div>
+  <div class="videos" data-videos="all"></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">
+  <div class="footer__grid">
+    <div>
+      <a class="brand" href="index.html"><span class="milestone" aria-hidden="true"></span><span class="brand__name"><span class="en">Dalanwas</span><span class="hi">डालनवास</span></span></a>
+      <p class="en">A smart village of Mahendragarh district, Haryana — education, community and progress.</p><p class="hi">हरियाणा के महेंद्रगढ़ जिले का स्मार्ट गांव — शिक्षा, समुदाय और प्रगति।</p>
+      <button class="btn btn--sarson btn--sm" data-install hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg><span class="en">Install the app</span><span class="hi">ऐप इंस्टॉल करें</span></button>
+    </div>
+    <div><h3><span class="en">Pages</span><span class="hi">पेज</span></h3><ul><li><a href="index.html"><span class="en">Home</span><span class="hi">होम</span></a></li><li><a href="about.html"><span class="en">About</span><span class="hi">परिचय</span></a></li><li><a href="events.html"><span class="en">Events</span><span class="hi">कार्यक्रम</span></a></li><li><a href="library.html"><span class="en">Library</span><span class="hi">पुस्तकालय</span></a></li><li><a href="gallery.html"><span class="en">Gallery</span><span class="hi">गैलरी</span></a></li><li><a href="contact.html"><span class="en">Contact</span><span class="hi">संपर्क</span></a></li></ul></div>
+    <div><h3><span class="en">Get in touch</span><span class="hi">संपर्क करें</span></h3><ul>
+      <li><a href="tel:+919467801292">+91 94678 01292</a></li>
+      <li><a href="mailto:smartvillagedalanwas@gmail.com">smartvillagedalanwas@gmail.com</a></li>
+      <li><a href="https://wa.me/919467801292" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li><a href="https://www.instagram.com/baba_sanwat_nath_library/" target="_blank" rel="noopener">Instagram</a></li>
+    </ul></div>
   </div>
-</header>
-
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="events.html">Events</a>
-  <a href="library.html">Library</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<!-- PHOTO GALLERY -->
-<div class="section">
-  <h2 id="photoTitle">Photo Gallery</h2>
-  <div class="divider"></div>
-
-  <div class="photo-gallery">
-    <div class="photo-card"><img src="images/village1.jpg" onclick="openLightbox(0)"><div class="photo-overlay">Village View</div></div>
-    <div class="photo-card"><img src="images/village2.jpg" onclick="openLightbox(1)"><div class="photo-overlay">Village Road</div></div>
-    <div class="photo-card"><img src="images/village3.jpg" onclick="openLightbox(2)"><div class="photo-overlay">Temple Area</div></div>
-    <div class="photo-card"><img src="images/village4.jpg" onclick="openLightbox(3)"><div class="photo-overlay">Community Event</div></div>
-    <div class="photo-card"><img src="images/village5.jpg" onclick="openLightbox(4)"><div class="photo-overlay">School Building</div></div>
-    <div class="photo-card"><img src="images/village6.jpg" onclick="openLightbox(5)"><div class="photo-overlay">Library</div></div>
-    <div class="photo-card"><img src="images/village7.jpg" onclick="openLightbox(6)"><div class="photo-overlay">Festival</div></div>
-    <div class="photo-card"><img src="images/village8.jpg" onclick="openLightbox(7)"><div class="photo-overlay">Village Life</div></div>
-    <div class="photo-card"><img src="images/village9.jpg" onclick="openLightbox(8)"><div class="photo-overlay">Village Life</div></div>
-    <div class="photo-card"><img src="images/village10.jpg" onclick="openLightbox(9)"><div class="photo-overlay">Village Life</div></div>
-    <div class="photo-card"><img src="images/village11.jpg" onclick="openLightbox(10)"><div class="photo-overlay">Village Life</div></div>
-    <div class="photo-card"><img src="images/babasawanthnathji.jpg" onclick="openLightbox(11)"><div class="photo-overlay">Baba Sawanth Nath Ji</div></div>
-    <div class="photo-card"><img src="images/village12.jpg" onclick="openLightbox(12)"><div class="photo-overlay">Village Life</div></div>
-    <div class="photo-card"><img src="images/village13.jpg" onclick="openLightbox(13)"><div class="photo-overlay">Village Life</div></div>
-    <div class="photo-card"><img src="images/village14.jpg" onclick="openLightbox(14)"><div class="photo-overlay">Village Life</div></div>
+  <div class="footer__bottom">
+    <span>© <span data-year></span> <span class="en">Village Dalanwas, Haryana</span><span class="hi">गांव डालनवास, हरियाणा</span></span>
+    <span><span class="en">Developed by</span><span class="hi">निर्माता</span> Parveen Lamba</span>
   </div>
-</div>
-
-<!-- VIDEO GALLERY -->
-<div class="events2">
-  <h2>🎬 Video Gallery</h2>
-
-  <div class="events-grid2">
-    <div class="event-card2">
-      <iframe
-        src="https://www.youtube.com/embed/UuQWqhg6DdA"
-        title="Event Video 1"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <div class="event-card2">
-      <iframe
-        src="https://www.youtube.com/embed/jIokX36WDWQ"
-        title="Event Video 2"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div class="event-card2">
-      <iframe
-        src="https://www.youtube.com/embed/FwQaMi8NYYs"
-        title="Event Video 2"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div class="event-card2">
-      <iframe
-        src="https://www.youtube.com/embed/i-z9K5UxZz8"
-        title="Event Video 2"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close" onclick="closeLightbox()">×</span>
-  <span class="prev" onclick="changeSlide(-1)">❮</span>
-  <span class="next" onclick="changeSlide(1)">❯</span>
-  <img id="lightboxImg">
-</div>
-
-<!-- FOOTER -->
-<footer class="modern-footer">
-
-  <div class="footer-content">
-
-    <!-- LEFT -->
-    <div class="footer-brand">
-      <h3>🌿 Smart Village Dalanwas</h3>
-      <p>Haryana, India</p>
-      <p class="tagline">
-        Education • Community • Progress
-      </p>
-    </div>
-
-    <!-- CENTER -->
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="library.html">Library</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="footer-social">
-      <h4>Connect With Us</h4>
-
-      <a href="https://www.facebook.com/" target="_blank" class="social facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-
-      <a href="https://www.instagram.com/baba_sanwat_nath_library/" target="_blank" class="social instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-
-  </div>
-
-  <!-- BOTTOM BAR -->
-  <div class="footer-bottom">
-    <p>
-      © <span id="year"></span> Village Dalanwas | Haryana  
-      <br>
-      Developed by <b>Parveen Lamba</b>
-    </p>
-  </div>
-
-  <!-- SCROLL TOP -->
-  <button class="scroll-top" onclick="scrollToTop()">↑</button>
-
-</footer>
-
-
-<script>
-const images = [
-  "images/village1.jpg",
-  "images/village2.jpg",
-  "images/village3.jpg",
-  "images/village4.jpg",
-  "images/village5.jpg",
-  "images/village6.jpg",
-  "images/village7.jpg",
-  "images/village8.jpg",
-  "images/village9.jpg",
-  "images/village10.jpg",
-  "images/village11.jpg"
-];
-let current = 0;
-
-function openLightbox(i) {
-  current = i;
-  const lb = document.getElementById("lightbox");
-  lb.style.display = "flex";
-  document.getElementById("lightboxImg").src = images[i];
-
-  // Disable background scroll
-  document.body.style.overflow = "hidden";
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-
-  // Enable scroll back
-  document.body.style.overflow = "auto";
-}
-
-function changeSlide(step) {
-  current = (current + step + images.length) % images.length;
-  document.getElementById("lightboxImg").src = images[current];
-}
-
-/* Auto scroll */
-setInterval(() => {
-  if (document.getElementById("lightbox").style.display === "flex") {
-    changeSlide(1);
-  }
-}, 4000);
-
-/* Language toggle */
-function setLang(lang) {
-  if (lang === "hi") {
-    title.innerText = "डालनवास गांव गैलरी";
-    subtitle.innerText = "गांव की तस्वीरें और वीडियो";
-    photoTitle.innerText = "फोटो गैलरी";
-    videoTitle.innerText = "वीडियो गैलरी";
-  } else {
-    title.innerText = "Dalanwas Village Gallery";
-    subtitle.innerText = "Photos & Videos of Village Life";
-    photoTitle.innerText = "Photo Gallery";
-    videoTitle.innerText = "Video Gallery";
-  }
-}
-</script>
-<script>
-document.getElementById("year").innerText = new Date().getFullYear();
-/* ================= SCROLL TO TOP ================= */
-
-const scrollBtn = document.querySelector(".scroll-top");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollBtn.style.display = "flex";
-  } else {
-    scrollBtn.style.display = "none";
-  }
-});
-
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-</script>
-<script>
-/* TIME & DATE */
-function updateTime() {
-  const now = new Date();
-  document.getElementById("time").innerText =
-    now.toLocaleTimeString();
-  document.getElementById("date").innerText =
-    now.toDateString();
-}
-setInterval(updateTime, 1000);
-updateTime();
-
-/* WEATHER (Open-Meteo - FREE, no API key) */
-fetch("https://api.open-meteo.com/v1/forecast?latitude=28.28&longitude=76.15&current_weather=true")
-  .then(res => res.json())
-  .then(data => {
-    const temp = data.current_weather.temperature;
-    const wind = data.current_weather.windspeed;
-    document.getElementById("weather").innerText =
-      `Dalanwas: ${temp}°C, Wind ${wind} km/h`;
-  })
-  .catch(() => {
-    document.getElementById("weather").innerText =
-      "Weather unavailable";
-  });
-</script>
-<script>
-const canvas = document.getElementById("headerCanvas");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = 250;
-
-const particles = [];
-const particleCount = 80;
-
-// Initialize particles
-for (let i = 0; i < particleCount; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 3 + 1,
-    dx: (Math.random() - 0.5) * 0.7,
-    dy: (Math.random() - 0.5) * 0.7,
-    alpha: Math.random()
-  });
-}
-
-function drawParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Animated gradient background
-  const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-  const time = Date.now() * 0.0003;
-  gradient.addColorStop(0, `hsl(${Math.sin(time)*50+200}, 70%, 40%)`);
-  gradient.addColorStop(1, `hsl(${Math.cos(time)*50+250}, 70%, 50%)`);
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  // Draw particles
-  particles.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
-    ctx.fill();
-
-    p.x += p.dx;
-    p.y += p.dy;
-
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-  });
-
-  requestAnimationFrame(drawParticles);
-}
-
-drawParticles();
-
-// Adjust canvas on resize
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = 250;
-});
-</script>
+</div></footer>
+<a class="fab-wa" href="https://wa.me/919467801292" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+<nav class="tabbar" aria-label="Quick"><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span class="en">Home</span><span class="hi">होम</span></a><a href="events.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span class="en">Events</span><span class="hi">कार्यक्रम</span></a><a href="library.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5c.8 0 1.5-.7 1.5-1.5z"/></svg><span class="en">Library</span><span class="hi">पुस्तकालय</span></a><a href="gallery.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg><span class="en">Gallery</span><span class="hi">गैलरी</span></a><button type="button" data-drawer><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span class="en">More</span><span class="hi">और</span></button></nav>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu"><div class="drawer__scrim"></div><div class="drawer__panel"><a href="index.html"><span class="en">Home</span><span class="hi">होम</span></a><a href="about.html"><span class="en">About</span><span class="hi">परिचय</span></a><a href="events.html"><span class="en">Events</span><span class="hi">कार्यक्रम</span></a><a href="library.html"><span class="en">Library</span><span class="hi">पुस्तकालय</span></a><a href="gallery.html"><span class="en">Gallery</span><span class="hi">गैलरी</span></a><a href="contact.html"><span class="en">Contact</span><span class="hi">संपर्क</span></a>
+  <div class="btn-row" style="margin-top:1rem"><button class="btn btn--ghost btn--sm" data-search><span class="en">Search</span><span class="hi">खोजें</span></button><button class="btn btn--sarson btn--sm" data-install hidden><span class="en">Install the app</span><span class="hi">ऐप इंस्टॉल करें</span></button></div>
+</div></div>
 </body>
 </html>
